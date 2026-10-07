@@ -1,26 +1,347 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+@theme {
+  --color-brand-900: #00352b;
+  --color-brand-800: #004538;
+  --color-brand-700: #005949;
+  /* Verde para texto y botones sobre claro: 5.1:1 sobre cream, 5.5:1 con texto blanco. */
+  --color-brand-600: #007a37;
+  /* Verde de marca: solo para iconos, puntos y trazos decorativos (3.5:1, no apto para texto). */
+  --color-brand-500: #009a46;
+  --color-brand-300: #7cc576;
+  --color-brand-100: #dfeccb;
+  --color-sun: #f6a71c;
+  --color-cream: #f7f8f3;
+  --font-sans: var(--font-montserrat), ui-sans-serif, system-ui, sans-serif;
+  --ease-out-quart: cubic-bezier(0.25, 1, 0.5, 1);
+
+  /* Escala z-index */
+  --z-index-sticky: 40;
+  --z-index-header: 50;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 96px;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background: #ffffff;
+  color: #1c2b26;
+}
+
+:focus-visible {
+  outline: 3px solid var(--color-brand-500);
+  outline-offset: 3px;
+  border-radius: 4px;
+}
+
+/* El contenido es visible por defecto; solo se oculta para animarlo cuando hay JS. */
+@media (scripting: enabled) {
+  .reveal {
+    opacity: 0;
+    transform: translateY(24px);
+    transition:
+      opacity 0.7s var(--ease-out-quart),
+      transform 0.9s var(--ease-out-quart);
+  }
+  .reveal.is-visible {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@keyframes marquee {
+  to {
+    transform: translateX(-50%);
+  }
+}
+.marquee {
+  animation: marquee 50s linear infinite;
+}
+.marquee:hover {
+  animation-play-state: paused;
+}
+
+.no-scrollbar {
+  scrollbar-width: none;
+}
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  .reveal,
+  .reveal.is-visible {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+  /* Sin animación: los logos se muestran como una cuadrícula estática. */
+  .marquee {
+    animation: none;
+    width: auto;
+    flex-wrap: wrap;
+    justify-content: center;
+    row-gap: 2rem;
+    padding-inline: 1.5rem;
+  }
+  .marquee [data-dup] {
+    display: none;
+  }
+}
+
+/* ------------------------------------------------------------------
+   Coreografías por sección. El estado final es el estado por defecto:
+   sin JS o con movimiento reducido, todo se ve completo y quieto.
+   ------------------------------------------------------------------ */
+
+/* Hero: las tres palabras entran escalonadas, luego el subtítulo y los botones. */
+@keyframes hero-word {
+  from {
+    opacity: 0;
+    transform: translateX(32px);
+  }
+}
+@keyframes hero-fade {
+  from {
+    opacity: 0;
+    transform: translateY(16px);
+  }
+}
+@media (prefers-reduced-motion: no-preference) {
+  .hero-word {
+    display: inline-block;
+    animation: hero-word 1.1s var(--ease-out-quart) both;
+    animation-delay: calc(150ms + var(--i, 0) * 120ms);
+  }
+  .hero-after {
+    animation: hero-fade 0.9s var(--ease-out-quart) both;
+    animation-delay: calc(550ms + var(--i, 0) * 120ms);
+  }
+}
+
+/* Texto que sube desde una máscara, línea por línea. */
+.line-mask {
+  display: block;
+  overflow: hidden;
+  /* Deja aire para descendentes e itálicas sin recortarlas. */
+  padding: 0.08em 0.15em;
+  margin: -0.08em -0.15em;
+}
+.line-mask > span {
+  display: block;
+}
+
+/* Elementos de un grupo que suben con fundido, con retraso por índice. */
+@media (scripting: enabled) and (prefers-reduced-motion: no-preference) {
+  .reveal-group .line-mask > span {
+    transition: transform 1.1s var(--ease-out-quart);
+    transition-delay: calc(var(--i, 0) * 110ms + 150ms);
+  }
+  .reveal-group:not(.is-visible) .line-mask > span {
+    transform: translateY(110%);
+  }
+
+  .reveal-group .stagger {
+    transition:
+      opacity 0.8s var(--ease-out-quart),
+      transform 0.9s var(--ease-out-quart);
+    transition-delay: calc(var(--i, 0) * 90ms + 250ms);
+  }
+  .reveal-group:not(.is-visible) .stagger {
+    opacity: 0;
+    transform: translateY(18px);
+  }
+
+  .reveal-group .chip-pop {
+    transition:
+      opacity 0.5s var(--ease-out-quart),
+      transform 0.6s var(--ease-out-quart),
+      background-color 0.2s,
+      border-color 0.2s,
+      color 0.2s;
+    transition-delay: calc(var(--i, 0) * 55ms + 650ms), calc(var(--i, 0) * 55ms + 650ms), 0s, 0s, 0s;
+  }
+  .reveal-group:not(.is-visible) .chip-pop {
+    opacity: 0;
+    transform: translateY(10px) scale(0.94);
+  }
+
+  /* Compromiso: la curva de la foto se abre como el agua al extenderse. */
+  .compromiso-media {
+    transition: clip-path 1.6s var(--ease-out-quart);
+  }
+  .compromiso-media img {
+    transition: transform 2.2s var(--ease-out-quart);
+  }
+  .reveal-group:not(.is-visible) .compromiso-media {
+    clip-path: ellipse(0% 100% at 0% 50%);
+  }
+  .reveal-group:not(.is-visible) .compromiso-media img {
+    transform: scale(1.12);
+  }
+}
+
+.compromiso-media {
+  clip-path: ellipse(100% 100% at 0% 50%);
+}
+@media (max-width: 1023px) {
+  /* Apilado en móvil: la curva va en el borde inferior. */
+  .compromiso-media {
+    clip-path: ellipse(100% 100% at 50% 0%);
+  }
+  @media (scripting: enabled) and (prefers-reduced-motion: no-preference) {
+    .reveal-group:not(.is-visible) .compromiso-media {
+      clip-path: ellipse(100% 0% at 50% 0%);
+    }
+  }
+}
+
+/* Animaciones ligadas al scroll (Chrome, Edge, Safari 26+). Sin soporte: imagen fija. */
+@supports (animation-timeline: view()) {
+  @media (prefers-reduced-motion: no-preference) {
+    /* Parallax del hero al salir de pantalla. */
+    .hero-media {
+      animation: hero-parallax linear both;
+      animation-timeline: view();
+      animation-range: exit 0% exit 100%;
+    }
+    @keyframes hero-parallax {
+      to {
+        transform: translateY(18%) scale(1.06);
+      }
+    }
+
+    /* Banda: la foto se abre de un marco redondeado a sangre completa... */
+    .band {
+      view-timeline: --band block;
+      animation: band-open linear both;
+      animation-timeline: view();
+      animation-range: entry 0% cover 45%;
+    }
+    @keyframes band-open {
+      from {
+        clip-path: inset(0 5% round 40px);
+      }
+      to {
+        clip-path: inset(0 0 round 0);
+      }
+    }
+    /* ...mientras la imagen se desplaza más lento que la página. */
+    .band-media {
+      animation: band-parallax linear both;
+      animation-timeline: view();
+      animation-range: cover;
+    }
+    @keyframes band-parallax {
+      from {
+        transform: translateY(-9%);
+      }
+      to {
+        transform: translateY(9%);
+      }
+    }
+    /* El arco del pivote se dibuja con el scroll. */
+    .band-arc circle {
+      stroke-dasharray: 1;
+      animation: arc-draw linear both;
+      animation-timeline: --band;
+      animation-range: entry 20% cover 70%;
+    }
+    @keyframes arc-draw {
+      from {
+        stroke-dashoffset: 1;
+      }
+      to {
+        stroke-dashoffset: 0;
+      }
+    }
+  }
+}
+
+/* ------------------------------------------------------------------
+   Ficha de solución (<dialog> nativo)
+   ------------------------------------------------------------------ */
+.solution-dialog {
+  margin: auto;
+  width: min(100% - 2rem, 64rem);
+  max-width: none;
+  height: auto;
+  max-height: min(100dvh - 3rem, 56rem);
+  padding: 0;
+  border: 0;
+  border-radius: 2rem;
+  overflow: hidden;
+  background: #fff;
+  color: var(--color-brand-900);
+  box-shadow: 0 40px 80px -30px rgb(0 53 43 / 0.5);
+}
+.solution-dialog:focus {
+  outline: none;
+}
+.solution-dialog::backdrop {
+  background: rgb(0 53 43 / 0.55);
+  backdrop-filter: blur(4px);
+}
+.solution-dialog > .solution-scroll {
+  max-height: inherit;
+}
+html:has(.solution-dialog[open]) {
+  overflow: hidden;
+}
+
+@media (max-width: 639px) {
+  /* En el celular la ficha es una hoja que ocupa toda la pantalla. */
+  .solution-dialog {
+    width: 100%;
+    max-height: none;
+    height: 100dvh;
+    margin: 0;
+    border-radius: 0;
+  }
+  .solution-dialog > .solution-scroll {
+    height: 100%;
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .solution-dialog,
+  .solution-dialog::backdrop {
+    transition:
+      opacity 0.35s var(--ease-out-quart),
+      transform 0.45s var(--ease-out-quart),
+      overlay 0.45s allow-discrete,
+      display 0.45s allow-discrete;
+  }
+  .solution-dialog:not([open]) {
+    opacity: 0;
+    transform: translateY(24px) scale(0.98);
+  }
+  .solution-dialog:not([open])::backdrop {
+    opacity: 0;
+  }
+  @starting-style {
+    .solution-dialog[open] {
+      opacity: 0;
+      transform: translateY(24px) scale(0.98);
+    }
+    .solution-dialog[open]::backdrop {
+      opacity: 0;
+    }
+  }
+
+  /* Al cambiar de solución, el contenido entra suave. */
+  @keyframes solution-in {
+    from {
+      opacity: 0;
+      transform: translateY(12px);
+    }
+  }
+  .solution-body {
+    animation: solution-in 0.5s var(--ease-out-quart) both;
+  }
 }

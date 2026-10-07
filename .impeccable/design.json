@@ -1,0 +1,429 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-10-05T18:03:08.649768+00:00",
+  "title": "Design System: Agrologico",
+  "extensions": {
+    "colorMeta": {
+      "verde-agrologico": {
+        "role": "primary",
+        "displayName": "Verde Agrologico",
+        "canonical": "oklch(60.0% 0.165 150.0)",
+        "tonalRamp": [
+          "#001f00",
+          "#003b00",
+          "#005700",
+          "#007b28",
+          "#15a04c",
+          "#4cc770",
+          "#90e9a3",
+          "#d0fcd8"
+        ]
+      },
+      "verde-agrologico-texto": {
+        "role": "primary",
+        "displayName": "Verde Agrologico Texto",
+        "canonical": "oklch(50.7% 0.138 150.3)",
+        "tonalRamp": [
+          "#001e00",
+          "#003900",
+          "#005511",
+          "#007835",
+          "#399d58",
+          "#62c37b",
+          "#8fe9a4",
+          "#d0fcd8"
+        ]
+      },
+      "verde-noche": {
+        "role": "secondary",
+        "displayName": "Verde Noche",
+        "canonical": "oklch(29.4% 0.055 175.7)",
+        "tonalRamp": [
+          "#001910",
+          "#003128",
+          "#1c4c41",
+          "#3f6e62",
+          "#629185",
+          "#86b7a9",
+          "#acddcf",
+          "#dcf5ee"
+        ]
+      },
+      "verde-noche-medio": {
+        "role": "secondary",
+        "displayName": "Verde Noche Medio",
+        "canonical": "oklch(34.9% 0.066 174.8)",
+        "tonalRamp": [
+          "#001a10",
+          "#003327",
+          "#0e4e40",
+          "#367061",
+          "#5a9384",
+          "#7eb9a8",
+          "#a4e0ce",
+          "#d9f6ed"
+        ]
+      },
+      "verde-bosque": {
+        "role": "secondary",
+        "displayName": "Verde Bosque",
+        "canonical": "oklch(41.4% 0.078 175.0)",
+        "tonalRamp": [
+          "#001b10",
+          "#003427",
+          "#004f40",
+          "#277261",
+          "#4e9683",
+          "#73bba8",
+          "#99e2ce",
+          "#d5f8ed"
+        ]
+      },
+      "brote": {
+        "role": "secondary",
+        "displayName": "Brote",
+        "canonical": "oklch(75.6% 0.132 142.5)",
+        "tonalRamp": [
+          "#001c00",
+          "#003700",
+          "#005200",
+          "#2d7529",
+          "#529a4d",
+          "#77c071",
+          "#9ee797",
+          "#d6fad2"
+        ]
+      },
+      "rocio": {
+        "role": "secondary",
+        "displayName": "Rocío",
+        "canonical": "oklch(92.5% 0.046 124.8)",
+        "tonalRamp": [
+          "#0d1500",
+          "#242d12",
+          "#3d472b",
+          "#5d684b",
+          "#808b6d",
+          "#a4b091",
+          "#cad7b6",
+          "#ebf1e1"
+        ]
+      },
+      "sol": {
+        "role": "tertiary",
+        "displayName": "Sol",
+        "canonical": "oklch(78.6% 0.161 73.7)",
+        "tonalRamp": [
+          "#350000",
+          "#530800",
+          "#722a00",
+          "#974e00",
+          "#be7300",
+          "#e69800",
+          "#ffc369",
+          "#ffe9bf"
+        ]
+      },
+      "campo-claro": {
+        "role": "neutral",
+        "displayName": "Campo Claro",
+        "canonical": "oklch(97.7% 0.007 115.7)",
+        "tonalRamp": [
+          "#11120f",
+          "#292926",
+          "#42433f",
+          "#63645f",
+          "#868782",
+          "#aaaba7",
+          "#d1d1cd",
+          "#eeefec"
+        ]
+      },
+      "blanco": {
+        "role": "neutral",
+        "displayName": "Blanco",
+        "canonical": "oklch(100% 0 0)",
+        "tonalRamp": [
+          "#111111",
+          "#2a2a2a",
+          "#444444",
+          "#666666",
+          "#888888",
+          "#aaaaaa",
+          "#d4d4d4",
+          "#ffffff"
+        ]
+      },
+      "tinta": {
+        "role": "neutral",
+        "displayName": "Tinta",
+        "canonical": "oklch(27.4% 0.022 171.9)",
+        "tonalRamp": [
+          "#071510",
+          "#1e2d28",
+          "#374641",
+          "#576862",
+          "#798b84",
+          "#9db0a9",
+          "#c3d6cf",
+          "#e7f1ed"
+        ]
+      }
+    },
+    "typographyMeta": {
+      "display": {
+        "displayName": "Display",
+        "purpose": "Solo el titular del hero."
+      },
+      "headline": {
+        "displayName": "Headline",
+        "purpose": "Títulos de sección (h2); 2.125rem en móvil."
+      },
+      "subheadline": {
+        "displayName": "Subheadline",
+        "purpose": "Subtítulo verde bajo cada h2."
+      },
+      "title": {
+        "displayName": "Title",
+        "purpose": "Títulos de tarjeta."
+      },
+      "stat": {
+        "displayName": "Stat",
+        "purpose": "Cifras de la sección Somos."
+      },
+      "body": {
+        "displayName": "Body",
+        "purpose": "Párrafos; 16px móvil, 17px escritorio, ~65ch."
+      },
+      "body-small": {
+        "displayName": "Body Small",
+        "purpose": "Descripciones, footer, chips, botones."
+      },
+      "label": {
+        "displayName": "Label",
+        "purpose": "Solo Misión/Visión/Valores y badge Nuevo; mayúsculas."
+      }
+    },
+    "shadows": [
+      {
+        "name": "tarjeta",
+        "value": "0 20px 40px -24px rgba(0,53,43,0.35)",
+        "purpose": "Tarjetas de producto en reposo."
+      },
+      {
+        "name": "tarjeta-hover",
+        "value": "0 28px 50px -24px rgba(0,53,43,0.45)",
+        "purpose": "Tarjeta de producto en hover (con -4px Y)."
+      },
+      {
+        "name": "panel",
+        "value": "0 24px 60px -30px rgba(0,53,43,0.35)",
+        "purpose": "Paneles grandes: Compromiso, Contacto."
+      },
+      {
+        "name": "header",
+        "value": "0 6px 24px -12px rgba(0,53,43,0.25)",
+        "purpose": "Header fijo tras scroll."
+      },
+      {
+        "name": "flotante",
+        "value": "0 10px 30px -8px rgba(0,53,43,0.6)",
+        "purpose": "Botón flotante de WhatsApp."
+      }
+    ],
+    "motion": [
+      {
+        "name": "ease-out-quart",
+        "value": "cubic-bezier(0.25, 1, 0.5, 1)",
+        "purpose": "Curva por defecto para entradas y hovers."
+      },
+      {
+        "name": "reveal",
+        "value": "opacity 0.7s, transform 0.9s ease-out-quart; translateY(24px)",
+        "purpose": "Entrada al hacer scroll; solo con JS y sin reduced-motion."
+      },
+      {
+        "name": "state",
+        "value": "200ms",
+        "purpose": "Cambios de color en hover/foco."
+      },
+      {
+        "name": "marquee",
+        "value": "50s linear infinite",
+        "purpose": "Carrusel de logos; pausa en hover, cuadrícula estática con reduced-motion."
+      },
+      {
+        "name": "hero-entrada",
+        "value": "translateX(32px)→0, 1.1s, 120ms entre palabras",
+        "purpose": "Titular del hero al cargar."
+      },
+      {
+        "name": "banda-scroll",
+        "value": "clip-path inset(0 5% round 40px)→inset(0); parallax ±9%; arco stroke-dashoffset 1→0",
+        "purpose": "Banda de imagen ligada al scroll (animation-timeline: view())."
+      },
+      {
+        "name": "compromiso-curva",
+        "value": "clip-path ellipse(0% 100%)→ellipse(100% 100%), 1.6s",
+        "purpose": "Apertura de la foto de Compromiso."
+      },
+      {
+        "name": "line-mask",
+        "value": "translateY(110%)→0, 1.1s, 110ms entre líneas",
+        "purpose": "Frases que suben línea por línea."
+      }
+    ],
+    "breakpoints": [
+      {
+        "name": "sm",
+        "value": "640px"
+      },
+      {
+        "name": "md",
+        "value": "768px"
+      },
+      {
+        "name": "lg",
+        "value": "1024px"
+      },
+      {
+        "name": "container",
+        "value": "1280px"
+      }
+    ]
+  },
+  "components": [
+    {
+      "name": "Botón primario",
+      "kind": "button",
+      "refersTo": "button-primary",
+      "description": "CTA principal: Ver productos, Cotizar, Enviar.",
+      "html": "<a class=\"ds-btn-primary\" href=\"#\">Ver productos <svg viewBox=\"0 0 24 24\" width=\"16\" height=\"16\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.8\" aria-hidden=\"true\"><path d=\"M4 12h15m-5-5 5 5-5 5\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/></svg></a>",
+      "css": ".ds-btn-primary { font-family: Montserrat, ui-sans-serif, system-ui, sans-serif; display:inline-flex; align-items:center; gap:8px; min-height:48px; padding:0 24px; border-radius:9999px; background:#007a37; color:#fff; font-size:15px; font-weight:600; text-decoration:none; transition:background-color .2s; } .ds-btn-primary svg { transition:transform .2s cubic-bezier(0.25,1,0.5,1); } .ds-btn-primary:hover { background:#005949; } .ds-btn-primary:hover svg { transform:translateX(2px); } .ds-btn-primary:focus-visible { outline:3px solid #009a46; outline-offset:3px; }"
+    },
+    {
+      "name": "Botón claro",
+      "kind": "button",
+      "refersTo": "button-light",
+      "description": "CTA secundario sobre fotografía (hero).",
+      "html": "<div class=\"ds-photo\"><a class=\"ds-btn-light\" href=\"#\">Cotizar proyecto <svg viewBox=\"0 0 24 24\" width=\"16\" height=\"16\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.8\" aria-hidden=\"true\"><path d=\"M4 12h15m-5-5 5 5-5 5\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/></svg></a></div>",
+      "css": ".ds-photo { padding:24px; background:#00352b; border-radius:24px; } .ds-btn-light { font-family: Montserrat, ui-sans-serif, system-ui, sans-serif; display:inline-flex; align-items:center; gap:8px; min-height:48px; padding:0 24px; border-radius:9999px; background:#fff; color:#004538; font-size:15px; font-weight:600; text-decoration:none; transition:background-color .2s; } .ds-btn-light:hover { background:#dfeccb; } .ds-btn-light:focus-visible { outline:3px solid #009a46; outline-offset:3px; }"
+    },
+    {
+      "name": "Campo de formulario",
+      "kind": "input",
+      "refersTo": "input-field",
+      "description": "Campo con etiqueta visible; foco con halo verde.",
+      "html": "<div class=\"ds-field\"><label class=\"ds-label\" for=\"ds-n\">Nombre<span class=\"ds-req\"> *</span></label><input id=\"ds-n\" class=\"ds-input\" /></div>",
+      "css": ".ds-field { font-family: Montserrat, ui-sans-serif, system-ui, sans-serif; max-width:320px; } .ds-label { display:block; margin-bottom:8px; font-size:15px; font-weight:500; color:#00352b; } .ds-req { color:#007a37; } .ds-input { font-family: Montserrat, ui-sans-serif, system-ui, sans-serif; width:100%; box-sizing:border-box; padding:14px 20px; font-size:16px; color:#00352b; background:#fff; border:1px solid rgba(0,89,73,.25); border-radius:16px; outline:none; transition:border-color .2s, box-shadow .2s; } .ds-input:focus { border-color:#007a37; box-shadow:0 0 0 4px rgba(0,154,70,.2); }"
+    },
+    {
+      "name": "Navegación",
+      "kind": "nav",
+      "refersTo": "nav-link",
+      "description": "Header fijo en estado sólido (tras scroll).",
+      "html": "<nav class=\"ds-nav\"><strong class=\"ds-logo\">Agrologico</strong><div class=\"ds-links\"><a href=\"#\">Productos</a><a href=\"#\">Soluciones</a><a href=\"#\">Cobertura</a><a class=\"ds-cta\" href=\"#\">Cotizar</a></div></nav>",
+      "css": ".ds-nav { font-family: Montserrat, ui-sans-serif, system-ui, sans-serif; display:flex; align-items:center; justify-content:space-between; gap:24px; padding:14px 24px; background:#fff; box-shadow:0 6px 24px -12px rgba(0,53,43,.25); } .ds-logo { color:#00352b; font-size:20px; font-weight:700; } .ds-links { display:flex; align-items:center; gap:28px; } .ds-links a { color:#00352b; font-size:15px; font-weight:500; text-decoration:none; transition:color .2s; } .ds-links a:hover { color:#007a37; } .ds-links a.ds-cta { display:inline-flex; align-items:center; min-height:44px; padding:0 24px; border-radius:9999px; background:#007a37; color:#fff; font-weight:600; } .ds-links a.ds-cta:hover { background:#005949; color:#fff; } .ds-links a:focus-visible { outline:3px solid #009a46; outline-offset:3px; }"
+    },
+    {
+      "name": "Chip de valor y badge Nuevo",
+      "kind": "chip",
+      "refersTo": "chip-valor",
+      "description": "Chips de contorno para valores; badge sol para novedades.",
+      "html": "<div class=\"ds-chips\"><span class=\"ds-chip\">Responsabilidad</span><span class=\"ds-chip\">Servicio</span><span class=\"ds-badge\">Nuevo</span></div>",
+      "css": ".ds-chips { font-family: Montserrat, ui-sans-serif, system-ui, sans-serif; display:flex; flex-wrap:wrap; gap:8px; align-items:center; } .ds-chip { padding:6px 16px; border:1px solid rgba(0,89,73,.2); border-radius:9999px; font-size:15px; color:#004538; } .ds-badge { padding:4px 12px; border-radius:9999px; background:#f6a71c; color:#00352b; font-size:12px; font-weight:700; letter-spacing:.025em; text-transform:uppercase; }"
+    },
+    {
+      "name": "Tarjeta de producto",
+      "kind": "card",
+      "refersTo": "card-producto",
+      "description": "Tarjeta del carril de productos: título, descripción visible, producto sobre arco Rocío.",
+      "html": "<a class=\"ds-product\" href=\"#\"><div class=\"ds-product-text\"><h3>Riego<br/>por goteo</h3><p>Mangueras y cintas con gotero integrado, goteros autocompensados y accesorios.</p></div><div class=\"ds-product-arc\"></div><span class=\"ds-product-go\"><svg viewBox=\"0 0 24 24\" width=\"16\" height=\"16\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.8\" aria-hidden=\"true\"><path d=\"M4 12h15m-5-5 5 5-5 5\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/></svg></span></a>",
+      "css": ".ds-product { font-family: Montserrat, ui-sans-serif, system-ui, sans-serif; position:relative; display:flex; flex-direction:column; width:264px; height:420px; overflow:hidden; border-radius:40px; background:#fff; text-decoration:none; box-shadow:0 20px 40px -24px rgba(0,53,43,.35); transition:translate .3s cubic-bezier(0.25,1,0.5,1), box-shadow .3s; } .ds-product:hover { translate:0 -4px; box-shadow:0 28px 50px -24px rgba(0,53,43,.45); } .ds-product:focus-visible { outline:3px solid #009a46; outline-offset:3px; } .ds-product-text { padding:32px 28px 0; } .ds-product h3 { margin:0; font-size:20px; font-weight:500; line-height:1.375; color:#00352b; } .ds-product p { margin:12px 0 0; font-size:15px; line-height:1.625; color:rgba(0,53,43,.75); } .ds-product-arc { margin:auto -40px 0; height:158px; border-radius:50% 50% 0 0; background:rgba(223,236,203,.7); } .ds-product-go { position:absolute; right:20px; bottom:20px; display:grid; place-items:center; width:40px; height:40px; border-radius:9999px; background:#fff; color:#007a37; transition:background-color .2s, color .2s; } .ds-product:hover .ds-product-go { background:#007a37; color:#fff; }"
+    },
+    {
+      "name": "Tarjeta de solución",
+      "kind": "card",
+      "refersTo": "card-solucion",
+      "description": "Foto con overlay Verde Noche y título blanco al pie.",
+      "html": "<div class=\"ds-solution\"><span class=\"ds-badge-s\">Nuevo</span><h3>Energía solar</h3></div>",
+      "css": ".ds-solution { font-family: Montserrat, ui-sans-serif, system-ui, sans-serif; position:relative; width:320px; aspect-ratio:4/3; overflow:hidden; border-radius:32px; background:linear-gradient(to top, rgba(0,53,43,.9), rgba(0,53,43,.2) 50%, transparent), linear-gradient(135deg,#629185,#86b7a9 40%,#acddcf); } .ds-solution h3 { position:absolute; left:24px; right:24px; bottom:20px; margin:0; font-size:20px; font-weight:500; line-height:1.375; color:#fff; } .ds-badge-s { position:absolute; top:20px; left:20px; padding:4px 12px; border-radius:9999px; background:#f6a71c; color:#00352b; font-size:12px; font-weight:700; text-transform:uppercase; }"
+    },
+    {
+      "name": "WhatsApp flotante",
+      "kind": "custom",
+      "refersTo": "button-primary",
+      "description": "Acceso directo a WhatsApp en móvil tras dejar el hero.",
+      "html": "<a class=\"ds-fab\" href=\"#\" aria-label=\"Escríbenos por WhatsApp\"><svg viewBox=\"0 0 24 24\" width=\"20\" height=\"20\" fill=\"currentColor\" aria-hidden=\"true\"><path d=\"M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2m0 18.2a8.2 8.2 0 0 1-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2\"/></svg></a>",
+      "css": ".ds-fab { display:grid; place-items:center; width:56px; height:56px; border-radius:9999px; background:#007a37; color:#fff; box-shadow:0 10px 30px -8px rgba(0,53,43,.6); transition:background-color .2s; } .ds-fab svg { width:28px; height:28px; } .ds-fab:hover { background:#005949; } .ds-fab:focus-visible { outline:3px solid #009a46; outline-offset:3px; }"
+    }
+  ],
+  "narrative": {
+    "northStar": "El Campo Tecnificado",
+    "overview": "La tecnología de precisión puesta al servicio del productor. La fotografía real de campo (fincas, pivotes, invernaderos, equipo en operación) carga la historia. La interfaz se mantiene limpia, técnica y callada alrededor de ella, como un buen sistema de riego: funciona sin llamar la atención. La referencia es caudal.es: fotografía agrícola a sangre, titulares sans-serif con aplomo, espacio en blanco generoso y producto sobre fondo suave.\n\nLa densidad es baja y el ritmo pausado: secciones de 96–128px de alto vertical, una idea por pantalla y un llamado a conversar siempre a un paso (WhatsApp, teléfono, formulario). La paleta es de compromiso restringido: dos verdes de marca, un acento sol escaso, blanco y un claro de campo para alternar secciones. Las curvas aparecen en dos sitios: en los radios grandes de las tarjetas y en los arcos de línea fina que evocan el giro de un pivote central. Esas curvas son la firma geométrica del sistema.\n\nEl sistema rechaza explícitamente el **cliché agro** (hojitas decorativas, verde-y-hojas, beige rústico, ilustraciones de granja, tractores clip-art), el **look SaaS/startup genérico** (texto con gradiente, tarjetas de métricas, glassmorphism) y la **grilla densa de catálogo ferretero** con banners de oferta.",
+    "keyCharacteristics": [
+      "Fotografía real de campo a sangre; la UI nunca compite con ella.",
+      "Una sola familia tipográfica (Montserrat) con contraste de peso y tamaño.",
+      "Formas suaves y firmes: radios generosos (16–40px), píldoras y colores sólidos y decididos.",
+      "Arcos de línea fina (1px) como única decoración gráfica.",
+      "Legible bajo el sol: contraste AA en todo texto, cuerpo de 16–17px y objetivos táctiles de 44px o más.",
+      "Movimiento sobrio: entradas suaves con ease-out-quart y nada que bloquee el contenido."
+    ],
+    "rules": [
+      {
+        "name": "The Two-Greens Rule",
+        "body": "Verde Agrologico (#009a46) decora y Verde Agrologico Texto (#007a37) se lee. Si un verde lleva letras, es #007a37 o más oscuro. Sin excepciones.",
+        "section": "colors"
+      },
+      {
+        "name": "The Scarce Sun Rule",
+        "body": "El Sol aparece en menos del 2% de cualquier pantalla: badges, pines y un único hito. Si hay más de tres toques de sol a la vista, sobra uno.",
+        "section": "colors"
+      },
+      {
+        "name": "The Contrast Floor Rule",
+        "body": "El texto de cuerpo nunca baja de Verde Noche al 75% sobre claro (6:1). Gris claro \"por elegancia\" está prohibido: esta página se lee en el campo, bajo el sol.",
+        "section": "colors"
+      },
+      {
+        "name": "The 15px Floor Rule",
+        "body": "Ningún texto de lectura baja de 15px (el copyright puede usar 14px). Los usuarios mayores en celular son parte del público.",
+        "section": "typography"
+      },
+      {
+        "name": "The No-Eyebrow Rule",
+        "body": "Las etiquetas en mayúsculas espaciadas existen solo dentro de Compromiso. Nunca se ponen como kicker sobre los títulos de sección.",
+        "section": "typography"
+      },
+      {
+        "name": "The Green Shadow Rule",
+        "body": "Las sombras siempre van teñidas de Verde Noche (rgba(0,53,43,…)), nunca en negro puro. Si una sombra se ve gris o dura, el blur es muy pequeño o el spread no es lo bastante negativo.",
+        "section": "elevation"
+      }
+    ],
+    "dos": [
+      "**Do** dejar que la fotografía real de campo (fincas, equipo y proyectos de Agrologico) cargue cada sección visual.",
+      "**Do** usar #007a37 para todo verde que lleve texto, y #009a46 solo para iconos, puntos y trazos.",
+      "**Do** mantener el texto de cuerpo en 16–17px y Verde Noche al 75% o más de opacidad. Los subtítulos van bajo el título, en verde.",
+      "**Do** dar a cada botón y control una altura mínima de 44px (48px por defecto).",
+      "**Do** alternar Blanco / Campo Claro / Verde Noche Medio para separar secciones, sin líneas divisorias.",
+      "**Do** teñir todas las sombras con Verde Noche y mantenerlas difusas, con spread negativo.",
+      "**Do** cerrar cada sección con un camino a la conversación (WhatsApp, teléfono o formulario).",
+      "**Do** dar a cada animación su alternativa en `prefers-reduced-motion`, y dejar el contenido visible por defecto aunque no haya JS.",
+      "**Do** diseñar el movimiento por sección según lo que revela (curva que se abre, texto que sube por líneas, foto con parallax), con ease-out-quart."
+    ],
+    "donts": [
+      "**Don't** caer en el **cliché agro**: nada de verde-y-hojitas decorativas, beige rústico, ilustraciones de granja ni tractores clip-art.",
+      "**Don't** usar el **look SaaS/startup genérico**: texto con gradiente, tarjetas de métricas con gradiente o glassmorphism.",
+      "**Don't** convertir los productos en una **grilla densa de catálogo ferretero** con banners de oferta.",
+      "**Don't** usar Sol (#f6a71c) ni Verde Agrologico (#009a46) como color de texto sobre fondos claros.",
+      "**Don't** poner etiquetas en mayúsculas espaciadas (eyebrows) ni numeración 01/02/03 sobre los títulos de sección.",
+      "**Don't** usar bordes laterales de color (border-left o border-right de más de 1px) como acento.",
+      "**Don't** agregar una segunda familia tipográfica. Montserrat en cuatro pesos es la voz.",
+      "**Don't** usar sombras negras o duras. Si se ve como una app de 2014, la sombra está demasiado oscura y el blur es demasiado chico.",
+      "**Don't** depender del hover para mostrar información: en celular no existe.",
+      "**Don't** aplicar el mismo fade-up idéntico a todas las secciones, ni animar contenido que no se pueda ver sin JS.",
+      "**Don't** usar placeholders como etiquetas de formulario."
+    ]
+  }
+}
