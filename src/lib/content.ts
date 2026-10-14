@@ -17,10 +17,12 @@ export const waLink = (text: string = site.whatsappGreeting) =>
   `https://wa.me/${site.whatsapp}?text=${encodeURIComponent(text)}`;
 
 export const nav = [
-  { label: "Somos Agrologico", href: "#nosotros" },
+  { label: "Líneas de negocio", href: "#lineas-de-negocio" },
   { label: "Productos", href: "#productos" },
   { label: "Soluciones", href: "#soluciones" },
+  { label: "Proyectos", href: "#proyectos" },
   { label: "Marcas", href: "#marcas" },
+  { label: "Quiénes somos", href: "#nosotros" },
   { label: "Cobertura", href: "#cobertura" },
 ];
 
@@ -377,6 +379,129 @@ export const solutions: Solution[] = [
   },
 ];
 
+// Soluciones por cultivo. BORRADOR redactado a partir de las líneas de negocio:
+// revisar con el equipo comercial qué ofrecer a cada cultivo.
+// Cada recomendación enlaza a la ficha de su línea (`line` = slug en `solutions`).
+export type Crop = {
+  slug: string;
+  name: string;
+  img: string;
+  alt: string;
+  intro: string;
+  offer: { line: string; text: string }[];
+};
+
+export const crops: Crop[] = [
+  {
+    slug: "banano",
+    name: "Banano",
+    img: "/img/crops/banano.jpg",
+    alt: "Racimo de banano en la planta",
+    intro: "Del campo a la caja de exportación: riego, nutrición y empaque para una fruta pareja y de calidad.",
+    offer: [
+      { line: "riego", text: "Microaspersión y riego por goteo" },
+      { line: "nutricion", text: "Nutrición foliar y bioestimulantes" },
+      { line: "empaque", text: "Fundas para racimo, esquineros y bolsas biodegradables" },
+      { line: "poscosecha", text: "Líneas de lavado, selección y empaque" },
+    ],
+  },
+  {
+    slug: "cafe",
+    name: "Café",
+    img: "/img/crops/cafe.jpg",
+    alt: "Rama de cafeto con frutos maduros",
+    intro: "Cafetales más productivos desde el vivero, con riego eficiente en ladera y nutrición a la medida.",
+    offer: [
+      { line: "insumos", text: "Bandejas, sustratos y macetas para vivero" },
+      { line: "riego", text: "Riego por goteo autocompensado para ladera" },
+      { line: "nutricion", text: "Nutrición foliar y correctores de magnesio" },
+      { line: "precision", text: "Sensores y monitoreo del cultivo" },
+    ],
+  },
+  {
+    slug: "cana",
+    name: "Caña de azúcar",
+    img: "/img/crops/cana.jpg",
+    alt: "Plantación de caña de azúcar",
+    intro: "Riego mecanizado y bombeo para grandes extensiones, con el agua bajo control.",
+    offer: [
+      { line: "riego", text: "Pivotes, enrolladores y cañones de riego" },
+      { line: "motores", text: "Motobombas y generadores" },
+      { line: "plasticos", text: "Geomembranas para reservorios y canales" },
+      { line: "automatizacion", text: "Controladores y ferti-riego" },
+    ],
+  },
+  {
+    slug: "hortalizas",
+    name: "Hortalizas",
+    img: "/img/crops/hortalizas.jpg",
+    alt: "Hileras de hortalizas en campo abierto",
+    intro: "Producción intensiva con agua, nutrición y protección exactas para cada ciclo.",
+    offer: [
+      { line: "riego", text: "Cintas de goteo y goteros" },
+      { line: "plasticos", text: "Acolchado plástico y mallas de tutoreo" },
+      { line: "cultivos-protegidos", text: "Macrotúneles y casas malla" },
+      { line: "automatizacion", text: "Equipos de ferti-riego" },
+      { line: "insumos", text: "Bandejas de germinación y control de plagas" },
+    ],
+  },
+  {
+    slug: "flores",
+    name: "Flores y ornamentales",
+    img: "/img/crops/flores.jpg",
+    alt: "Flores de colores dentro de un invernadero",
+    intro: "Clima, agua y luz controlados para flores y plantas de exportación.",
+    offer: [
+      { line: "cultivos-protegidos", text: "Invernaderos, ventilación e iluminación LED" },
+      { line: "automatizacion", text: "Control de clima para invernaderos" },
+      { line: "riego", text: "Nebulización y microaspersión" },
+      { line: "agua", text: "Oxigenación y reúso del agua de drenaje" },
+    ],
+  },
+  {
+    slug: "palma",
+    name: "Palma de aceite",
+    img: "/img/crops/palma.jpg",
+    alt: "Plantación de palma de aceite",
+    intro: "Agua y energía para plantaciones extensas, con datos para gestionar la finca.",
+    offer: [
+      { line: "riego", text: "Aspersión y riego por goteo" },
+      { line: "motores", text: "Motobombas y generadores" },
+      { line: "solar", text: "Energía solar para bombeo" },
+      { line: "precision", text: "Software de gestión agrícola" },
+    ],
+  },
+  {
+    slug: "frutales",
+    name: "Aguacate y frutales",
+    img: "/img/solutions/proyectos-aguacate.jpg",
+    alt: "Plantación de aguacate con riego",
+    intro: "Huertos de alto valor con riego preciso por árbol y monitoreo del cultivo.",
+    offer: [
+      { line: "riego", text: "Microaspersión y goteo autocompensado" },
+      { line: "automatizacion", text: "Controladores de riego" },
+      { line: "precision", text: "Sensores instalados en el árbol" },
+      { line: "poscosecha", text: "Lavado y selección de fruta" },
+    ],
+  },
+];
+
+// Proyectos: cómo trabajamos. Las fotos son de proyectos de referencia;
+// TODO: sumar casos reales (finca, lugar, qué se instaló) cuando el equipo los comparta.
+export const projectSteps = [
+  { title: "Diagnóstico y diseño", text: "Visitamos la finca, medimos el agua y el suelo, y diseñamos el sistema a la medida del cultivo." },
+  { title: "Suministro", text: "Equipos de marcas de prestigio mundial y de desarrollo propio, con entrega en la región." },
+  { title: "Instalación", text: "Nuestro equipo técnico instala y prueba cada componente en campo." },
+  { title: "Puesta en marcha y soporte", text: "Capacitamos a tu personal y te acompañamos con soporte técnico después de la entrega." },
+];
+
+export const projectPhotos = [
+  { src: "/img/solutions/proyectos-planta.jpg", alt: "Vista aérea de un proyecto agroindustrial con naves y bodegas" },
+  { src: "/img/solutions/proyectos-bombeo.jpg", alt: "Estación de bombeo instalada junto a un río" },
+  { src: "/img/photos/tanques.jpg", alt: "Vista aérea de invernaderos y parcelas tecnificadas" },
+  { src: "/img/solutions/proyectos-invernaderos.jpg", alt: "Invernaderos de un proyecto de cultivos protegidos" },
+];
+
 export const brands = [
   { id: "naandanjain", name: "NaanDanJain" },
   { id: "rivulis", name: "Rivulis" },
@@ -424,11 +549,70 @@ export const values = [
   "Responsabilidad", "Excelencia", "Honestidad", "Servicio", "Disciplina", "Lealtad", "Respeto",
 ];
 
-export const zones = [
-  { name: "Guatemala", detail: "Nor Oriente · Altiplano y Verapaces · Costa Sur" },
-  { name: "El Salvador", detail: "Cobertura nacional" },
-  { name: "Honduras", detail: "Cobertura nacional" },
-  { name: "Belice", detail: "Cobertura nacional" },
-  { name: "Costa Rica y Nicaragua", detail: "Presencia histórica" },
-  { name: "Otros países", detail: "Consúltanos" },
+// Zonas de venta del mapa. `paths` son las claves de `mapPaths` (src/lib/map-paths.ts).
+// TODO: los teléfonos de zona son de EJEMPLO, reemplazar por los reales de cada asesor.
+// La división de Guatemala por departamentos también es provisional.
+export type Zone = {
+  id: string;
+  country: string;
+  name: string;
+  detail: string;
+  paths: string[];
+  phone: string;
+  whatsapp: string; // solo dígitos, con código de país
+};
+
+export const zones: Zone[] = [
+  {
+    id: "gt-central",
+    country: "Guatemala",
+    name: "Central",
+    detail: "Guatemala, Sacatepéquez y Chimaltenango",
+    paths: ["gt-central"],
+    phone: site.phone,
+    whatsapp: site.whatsapp,
+  },
+  {
+    id: "gt-altiplano",
+    country: "Guatemala",
+    name: "Altiplano y Verapaces",
+    detail: "Huehuetenango, San Marcos, Quetzaltenango, Quiché y las Verapaces",
+    paths: ["gt-altiplano"],
+    phone: "+502 5000 0102",
+    whatsapp: "50250000102",
+  },
+  {
+    id: "gt-nororiente",
+    country: "Guatemala",
+    name: "Nor Oriente",
+    detail: "Petén, Izabal, Zacapa, Chiquimula, Jalapa y Jutiapa",
+    paths: ["gt-nororiente"],
+    phone: "+502 5000 0103",
+    whatsapp: "50250000103",
+  },
+  {
+    id: "gt-costasur",
+    country: "Guatemala",
+    name: "Costa Sur",
+    detail: "Escuintla, Suchitepéquez, Retalhuleu y Santa Rosa",
+    paths: ["gt-costasur"],
+    phone: "+502 5000 0104",
+    whatsapp: "50250000104",
+  },
+  { id: "sv", country: "El Salvador", name: "El Salvador", detail: "Cobertura nacional", paths: ["sv"], phone: "+503 7000 0001", whatsapp: "50370000001" },
+  { id: "hn", country: "Honduras", name: "Honduras", detail: "Cobertura nacional", paths: ["hn"], phone: "+504 9000 0001", whatsapp: "50490000001" },
+  { id: "bz", country: "Belice", name: "Belice", detail: "Cobertura nacional", paths: ["bz"], phone: "+501 600 0001", whatsapp: "5016000001" },
+  {
+    id: "ni-cr",
+    country: "Costa Rica y Nicaragua",
+    name: "Costa Rica y Nicaragua",
+    detail: "Presencia histórica",
+    paths: ["ni", "cr"],
+    phone: "+506 8000 0001",
+    whatsapp: "50680000001",
+  },
 ];
+
+// Enlace de WhatsApp a un número específico (p. ej. el asesor de una zona).
+export const waTo = (number: string, text: string = site.whatsappGreeting) =>
+  `https://wa.me/${number}?text=${encodeURIComponent(text)}`;

@@ -47,7 +47,7 @@ export default function Solutions() {
       history.replaceState(null, "", "#contacto");
       return;
     }
-    history.replaceState(null, "", "#soluciones");
+    history.replaceState(null, "", "#lineas-de-negocio");
     opener.current?.focus({ preventScroll: true });
   }
 

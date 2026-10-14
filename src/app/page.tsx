@@ -5,8 +5,12 @@ import AboutCarousel from "@/components/AboutCarousel";
 import ContactForm from "@/components/ContactForm";
 import ProductRail from "@/components/ProductRail";
 import Solutions from "@/components/Solutions";
+import CropSolutions from "@/components/CropSolutions";
+import ZoneMap from "@/components/ZoneMap";
 import { Arrow, Mail, Phone, Pin, WhatsApp } from "@/components/icons";
-import { brands, history, nav, products, site, values, waLink, zones } from "@/lib/content";
+import { Isotipo, Leaf } from "@/components/Leaf";
+import Logo from "@/components/Logo";
+import { brands, history, nav, products, projectPhotos, projectSteps, site, values, waLink } from "@/lib/content";
 
 function Button({ href, children, light = false }: { href: string; children: React.ReactNode; light?: boolean }) {
   return (
@@ -21,19 +25,26 @@ function Button({ href, children, light = false }: { href: string; children: Rea
   );
 }
 
+// Título de sección armado como el logo: isotipo a la izquierda, título y subtítulo a la derecha.
 function SectionTitle({ title, kicker, light = false }: { title: string; kicker?: string; light?: boolean }) {
   return (
-    <div>
-      <h2
-        className={`text-[2.125rem] leading-[1.1] font-medium tracking-tight text-balance md:text-[2.75rem] ${
-          light ? "text-white" : "text-brand-900"
-        }`}
-      >
-        {title}
-      </h2>
-      {kicker && (
-        <p className={`mt-3 text-lg font-medium md:text-xl ${light ? "text-brand-300" : "text-brand-600"}`}>{kicker}</p>
-      )}
+    <div className="flex items-start gap-4 md:gap-5">
+      <Isotipo
+        light={light}
+        className={`w-auto shrink-0 ${kicker ? "mt-1 h-[4.75rem] md:h-[5.75rem]" : "mt-0.5 h-10 md:h-[3.25rem]"}`}
+      />
+      <div className="min-w-0">
+        <h2
+          className={`text-[2.125rem] leading-[1.1] font-medium tracking-tight text-balance md:text-[2.75rem] ${
+            light ? "text-white" : "text-brand-900"
+          }`}
+        >
+          {title}
+        </h2>
+        {kicker && (
+          <p className={`mt-2 text-lg font-medium md:text-xl ${light ? "text-brand-300" : "text-brand-600"}`}>{kicker}</p>
+        )}
+      </div>
     </div>
   );
 }
@@ -49,27 +60,21 @@ export default function Home() {
         <section id="inicio" className="relative isolate flex min-h-[100svh] items-center overflow-clip">
           <div className="hero-media absolute inset-0 -z-20">
             <Image
-              src="/img/photos/hero.jpg"
-              alt="Riego por aspersión en campo agrícola al atardecer"
+              src="/img/photos/hero-aspersion.jpg"
+              alt="Aspersores regando hileras de cultivo con montañas al fondo"
               fill
               preload
               sizes="100vw"
               className="object-cover"
             />
           </div>
-          <div className="absolute inset-0 -z-10 bg-gradient-to-b from-brand-900/90 via-brand-900/55 to-brand-900/10" />
-          <svg
-            className="pointer-events-none absolute left-1/2 top-[14%] -z-10 w-[150vw] max-w-none -translate-x-1/2 text-white/40"
-            viewBox="0 0 1600 900"
-            fill="none"
-            aria-hidden
-          >
-            <circle cx="800" cy="900" r="760" stroke="currentColor" strokeWidth="1" />
-            <circle cx="260" cy="980" r="560" stroke="currentColor" strokeWidth="1" opacity="0.6" />
-          </svg>
+          {/* Oscurece solo arriba (menú) y a la izquierda (titular); el resto de la foto conserva su color. */}
+          <div className="absolute inset-x-0 top-0 -z-10 h-1/3 bg-gradient-to-b from-brand-900/70 to-transparent" />
+          <div className="absolute inset-0 -z-10 bg-gradient-to-r from-brand-900/85 via-brand-900/45 via-45% to-transparent to-75%" />
+          <Leaf line className="pointer-events-none absolute top-[17%] left-[6%] -z-10 w-[max(1250px,130vw)] max-w-none text-white/35 lg:left-[40%] lg:w-[1100px]" />
 
           <div className="mx-auto w-full max-w-7xl px-6 pt-28">
-            <div className="max-w-2xl md:ml-[38%]">
+            <div className="max-w-2xl">
               <h1 className="text-6xl font-semibold leading-[0.95] tracking-tight text-white sm:text-7xl lg:text-8xl">
                 {["Agua.", "Campo.", "Futuro."].map((w, k) => (
                   <span key={w} className="block">
@@ -80,7 +85,8 @@ export default function Home() {
                 ))}
               </h1>
               <p className="hero-after mt-6 max-w-md text-2xl font-normal leading-snug text-white/90 md:text-[1.7rem]">
-                Soluciones y tecnología al alcance de todos
+                Soluciones integrales <br className="hidden sm:block" />
+                para tus cultivos.
               </p>
               <div className="hero-after mt-8 flex flex-wrap gap-3" style={{ "--i": 1 } as React.CSSProperties}>
                 <Button href="#productos">Ver productos</Button>
@@ -88,6 +94,157 @@ export default function Home() {
                   Cotizar proyecto
                 </Button>
               </div>
+            </div>
+          </div>
+        </section>
+
+        {/* LÍNEAS DE NEGOCIO */}
+        <section id="lineas-de-negocio" className="py-24 md:py-32">
+          <div className="mx-auto max-w-7xl px-6">
+            <Reveal className="flex flex-wrap items-end justify-between gap-6">
+              <SectionTitle title="Líneas de negocio" kicker="15 líneas, un solo proveedor" />
+              <p className={`max-w-md ${body}`}>
+                Desde el diseño del proyecto hasta la puesta en marcha: riego, cultivos protegidos, energía, agua,
+                insumos y mucho más. Toca cada línea para ver equipos, marcas y cotizar.
+              </p>
+            </Reveal>
+            <Solutions />
+          </div>
+        </section>
+
+        {/* PRODUCTOS */}
+        <section id="productos" className="relative overflow-hidden bg-cream pt-4 pb-24 md:pb-32">
+          <Leaf line className="pointer-events-none absolute -top-16 -right-[8%] w-[min(1000px,130vw)] rotate-90 text-brand-500/35 lg:right-[2%]" />
+          <div className="relative mx-auto grid max-w-7xl gap-10 px-6 lg:grid-cols-[320px_minmax(0,1fr)] lg:gap-14">
+            <Reveal className="lg:pt-10">
+              <SectionTitle title="Productos" kicker="Sistemas de riego para profesionales" />
+              <p className={`mt-6 ${body}`}>
+                Mangueras, goteros, aspersores, válvulas, filtros y tuberías de marcas de prestigio mundial y de
+                desarrollo propio. Soluciones para goteo, microaspersión, aspersión y riego mecanizado.
+              </p>
+            </Reveal>
+            {/* En escritorio el carril se extiende hasta el borde derecho de la ventana. */}
+            <Reveal delay={120} className="min-w-0 lg:-mr-[calc((100vw-min(100vw,80rem))/2+1.5rem)]">
+              <ProductRail />
+            </Reveal>
+          </div>
+        </section>
+
+        {/* BANDA IMAGEN */}
+        <section className="band relative isolate h-[70vh] min-h-[420px] overflow-clip">
+          <div className="band-media absolute inset-x-0 -top-[12%] -bottom-[12%] -z-10">
+            <Image src="/img/photos/carrete.jpg" alt="Equipo de riego mecanizado en operación" fill sizes="100vw" className="object-cover" />
+          </div>
+          <div className="absolute inset-0 -z-10 bg-gradient-to-t from-brand-900/75 via-brand-900/10 to-transparent" />
+          <Leaf
+            line
+            drawable
+            className="band-leaf pointer-events-none absolute -bottom-[55%] left-[6%] -z-10 w-[min(1000px,110vw)] -rotate-[10deg] text-white/40"
+          />
+          <Reveal group className="mx-auto flex h-full max-w-7xl items-end justify-end px-6 pb-12 md:pb-16">
+            <p className="text-right text-[1.75rem] leading-tight font-medium text-balance text-white md:text-[2.75rem]">
+              <span className="line-mask">
+                <span style={{ "--i": 0 } as React.CSSProperties}>Soluciones y tecnología</span>
+              </span>
+              <span className="line-mask">
+                <span style={{ "--i": 1 } as React.CSSProperties}>al alcance de todos</span>
+              </span>
+              <span className="line-mask text-xl text-sun italic md:text-[1.75rem]">
+                <span className="pt-3 md:pt-4" style={{ "--i": 2 } as React.CSSProperties}>“Por un mejor planeta Tierra”</span>
+              </span>
+            </p>
+          </Reveal>
+        </section>
+
+        {/* SOLUCIONES POR CULTIVO */}
+        <section id="soluciones" className="relative overflow-hidden py-24 md:py-32">
+          <Leaf line className="pointer-events-none absolute top-[30%] -right-[22%] hidden w-[min(1000px,140vw)] rotate-[95deg] text-brand-500/30 lg:block" />
+          <div className="relative mx-auto max-w-7xl px-6">
+            <Reveal className="flex flex-wrap items-end justify-between gap-6">
+              <SectionTitle title="Soluciones por cultivo" kicker="Lo que tu cultivo necesita" />
+              <p className={`max-w-md ${body}`}>
+                Elige tu cultivo y te mostramos cómo lo atendemos: agua, nutrición, protección y cosecha, con un
+                solo equipo de asesores.
+              </p>
+            </Reveal>
+            <Reveal delay={120}>
+              <CropSolutions />
+            </Reveal>
+          </div>
+        </section>
+
+        {/* PROYECTOS */}
+        <section id="proyectos" className="relative isolate overflow-hidden bg-brand-900 py-24 text-white md:py-32">
+          <Leaf line className="pointer-events-none absolute -bottom-[35%] -left-[20%] -z-10 w-[min(1100px,150vw)] text-brand-300/30" />
+          <div className="mx-auto max-w-7xl px-6">
+            <div className="grid gap-12 lg:grid-cols-[minmax(0,0.9fr)_minmax(0,1.1fr)] lg:gap-16">
+              <Reveal>
+                <SectionTitle title="Proyectos" kicker="Del diseño a la puesta en marcha" light />
+                <p className="mt-6 max-w-md text-base leading-relaxed text-white/85 md:text-[17px]">
+                  Diseñamos, suministramos e instalamos proyectos de riego, bombeo, cultivos protegidos e
+                  infraestructura agrícola en toda la región, y nos quedamos contigo después de la entrega.
+                </p>
+                <div className="mt-8 flex flex-wrap gap-3">
+                  <Button href="#contacto" light>
+                    Cuéntanos tu proyecto
+                  </Button>
+                </div>
+              </Reveal>
+              {/* Pasos reales de un proyecto: aquí el orden sí importa. */}
+              <ol className="grid gap-x-10 sm:grid-cols-2">
+                {projectSteps.map((st, k) => (
+                  <Reveal as="li" key={st.title} delay={k * 90} className="border-t border-white/15 py-6">
+                    <span className="flex items-center gap-3 text-sm font-semibold text-brand-300">
+                      <Leaf className={`size-4 ${k === projectSteps.length - 1 ? "text-sun" : "text-brand-300"}`} />
+                      Paso {k + 1}
+                    </span>
+                    <p className="mt-3 text-xl font-medium">{st.title}</p>
+                    <p className="mt-2 text-[15px] leading-relaxed text-white/80">{st.text}</p>
+                  </Reveal>
+                ))}
+              </ol>
+            </div>
+
+            {/* Mosaico de fotos de proyectos. TODO: reemplazar por casos reales con nombre y lugar. */}
+            <ul className="mt-16 grid auto-rows-[160px] grid-cols-2 gap-3 sm:auto-rows-[200px] sm:gap-4 lg:grid-cols-4">
+              {projectPhotos.map((ph, k) => (
+                <Reveal
+                  as="li"
+                  key={ph.src}
+                  delay={k * 80}
+                  className={`relative overflow-hidden rounded-3xl bg-brand-800 ${
+                    k === 0 ? "col-span-2 row-span-2" : k === 1 ? "row-span-2" : ""
+                  }`}
+                >
+                  <Image src={ph.src} alt={ph.alt} fill sizes={k === 0 ? "(min-width: 1024px) 50vw, 100vw" : "(min-width: 1024px) 25vw, 50vw"} className="object-cover" />
+                </Reveal>
+              ))}
+            </ul>
+          </div>
+        </section>
+
+        {/* MARCAS */}
+        <section id="marcas" className="overflow-hidden py-24 md:py-28">
+          <div className="mx-auto max-w-7xl px-6">
+            <Reveal>
+              <SectionTitle title="Marcas que representamos" />
+              <p className={`mt-4 max-w-xl ${body}`}>
+                Marcas de prestigio mundial y marcas de desarrollo propio.
+              </p>
+            </Reveal>
+          </div>
+          <div className="relative mt-14 [mask-image:linear-gradient(90deg,transparent,#000_10%,#000_90%,transparent)]">
+            <div className="marquee flex w-max items-center gap-16">
+              {[...brands, ...brands].map((b, k) => (
+                <div
+                  key={`${b.id}-${k}`}
+                  data-dup={k >= brands.length || undefined}
+                  aria-hidden={k >= brands.length || undefined}
+                  className="relative h-14 w-36 shrink-0 opacity-80 grayscale transition duration-300 hover:opacity-100 hover:grayscale-0"
+                >
+                  <Image src={`/img/brands/${b.id}.png`} alt={k < brands.length ? b.name : ""} fill sizes="144px" className="object-contain" />
+                </div>
+              ))}
             </div>
           </div>
         </section>
@@ -128,71 +285,6 @@ export default function Home() {
             <Reveal delay={150}>
               <AboutCarousel />
             </Reveal>
-          </div>
-        </section>
-
-        {/* PRODUCTOS */}
-        <section id="productos" className="relative overflow-hidden bg-cream pt-4 pb-24 md:pb-32">
-          <svg
-            className="pointer-events-none absolute -top-10 left-[8%] w-[1100px] text-brand-500/30"
-            viewBox="0 0 1100 1100"
-            fill="none"
-            aria-hidden
-          >
-            <circle cx="550" cy="550" r="540" stroke="currentColor" />
-          </svg>
-          <div className="relative mx-auto grid max-w-7xl gap-10 px-6 lg:grid-cols-[320px_minmax(0,1fr)] lg:gap-14">
-            <Reveal className="lg:pt-10">
-              <SectionTitle title="Productos" kicker="Sistemas de riego para profesionales" />
-              <p className={`mt-6 ${body}`}>
-                Mangueras, goteros, aspersores, válvulas, filtros y tuberías de marcas de prestigio mundial y de
-                desarrollo propio. Soluciones para goteo, microaspersión, aspersión y riego mecanizado.
-              </p>
-            </Reveal>
-            {/* En escritorio el carril se extiende hasta el borde derecho de la ventana. */}
-            <Reveal delay={120} className="min-w-0 lg:-mr-[calc((100vw-min(100vw,80rem))/2+1.5rem)]">
-              <ProductRail />
-            </Reveal>
-          </div>
-        </section>
-
-        {/* BANDA IMAGEN */}
-        <section className="band relative isolate h-[70vh] min-h-[420px] overflow-clip">
-          <div className="band-media absolute inset-x-0 -top-[12%] -bottom-[12%] -z-10">
-            <Image src="/img/photos/carrete.jpg" alt="Equipo de riego mecanizado en operación" fill sizes="100vw" className="object-cover" />
-          </div>
-          <div className="absolute inset-0 -z-10 bg-gradient-to-t from-brand-900/75 via-brand-900/10 to-transparent" />
-          <svg
-            className="band-arc pointer-events-none absolute -bottom-[60%] -left-[10%] -z-10 w-[120%] max-w-none text-white/35"
-            viewBox="0 0 1600 900"
-            fill="none"
-            aria-hidden
-          >
-            <circle cx="800" cy="900" r="780" stroke="currentColor" strokeWidth="1" pathLength={1} transform="rotate(180 800 900)" />
-          </svg>
-          <Reveal group className="mx-auto flex h-full max-w-7xl items-end justify-end px-6 pb-12 md:pb-16">
-            <p className="text-right text-[1.75rem] leading-tight font-medium text-balance text-white italic md:text-[2.75rem]">
-              <span className="line-mask">
-                <span style={{ "--i": 0 } as React.CSSProperties}>Tecnología de riego</span>
-              </span>
-              <span className="line-mask">
-                <span style={{ "--i": 1 } as React.CSSProperties}>para cuidar el agua del mañana</span>
-              </span>
-            </p>
-          </Reveal>
-        </section>
-
-        {/* SOLUCIONES */}
-        <section id="soluciones" className="py-24 md:py-32">
-          <div className="mx-auto max-w-7xl px-6">
-            <Reveal className="flex flex-wrap items-end justify-between gap-6">
-              <SectionTitle title="Qué hacemos" kicker="Soluciones integrales para el agro" />
-              <p className={`max-w-md ${body}`}>
-                Desde el diseño del proyecto hasta la puesta en marcha: riego, cultivos protegidos, energía, agua,
-                insumos y mucho más. Toca cada línea para ver equipos, marcas y cotizar.
-              </p>
-            </Reveal>
-            <Solutions />
           </div>
         </section>
 
@@ -257,9 +349,9 @@ export default function Home() {
             <ol className="mt-12 grid gap-8 md:grid-cols-4">
               {history.map((h, k) => (
                 <Reveal as="li" key={h.title} delay={k * 100} className="relative border-t-2 border-brand-500/30 pt-6">
-                  <span
-                    className={`absolute -top-[7px] left-0 size-3 rounded-full ${
-                      k === history.length - 1 ? "bg-sun ring-4 ring-sun/25" : "bg-brand-500"
+                  <Leaf
+                    className={`absolute -top-[9px] left-0 size-4 ${
+                      k === history.length - 1 ? "text-sun" : "text-brand-500"
                     }`}
                   />
                   <p className="text-3xl font-semibold text-brand-700">{h.year}</p>
@@ -271,60 +363,20 @@ export default function Home() {
           </div>
         </section>
 
-        {/* MARCAS */}
-        <section id="marcas" className="overflow-hidden py-24 md:py-28">
-          <div className="mx-auto max-w-7xl px-6">
-            <Reveal>
-              <SectionTitle title="Marcas que representamos" />
-              <p className={`mt-4 max-w-xl ${body}`}>
-                Marcas de prestigio mundial y marcas de desarrollo propio.
-              </p>
-            </Reveal>
-          </div>
-          <div className="relative mt-14 [mask-image:linear-gradient(90deg,transparent,#000_10%,#000_90%,transparent)]">
-            <div className="marquee flex w-max items-center gap-16">
-              {[...brands, ...brands].map((b, k) => (
-                <div
-                  key={`${b.id}-${k}`}
-                  data-dup={k >= brands.length || undefined}
-                  aria-hidden={k >= brands.length || undefined}
-                  className="relative h-14 w-36 shrink-0 opacity-80 grayscale transition duration-300 hover:opacity-100 hover:grayscale-0"
-                >
-                  <Image src={`/img/brands/${b.id}.png`} alt={k < brands.length ? b.name : ""} fill sizes="144px" className="object-contain" />
-                </div>
-              ))}
-            </div>
-          </div>
-        </section>
-
         {/* COBERTURA */}
         <section id="cobertura" className="relative isolate overflow-hidden bg-brand-800 py-24 text-white md:py-32">
-          <svg className="pointer-events-none absolute -right-60 -top-40 -z-10 w-[900px] text-white/10" viewBox="0 0 900 900" fill="none" aria-hidden>
-            <circle cx="450" cy="450" r="440" stroke="currentColor" />
-            <circle cx="450" cy="450" r="320" stroke="currentColor" />
-          </svg>
-          <div className="mx-auto grid max-w-7xl gap-14 px-6 lg:grid-cols-[1fr_1.2fr]">
-            <Reveal>
+          <Leaf line className="pointer-events-none absolute -top-[25%] -right-[22%] -z-10 w-[min(1000px,140vw)] rotate-[70deg] text-brand-300/25" />
+          <div className="mx-auto max-w-7xl px-6">
+            <Reveal className="flex flex-wrap items-end justify-between gap-6">
               <SectionTitle title="Zonas de venta" kicker="Presencia en toda la región" light />
-              <p className="mt-6 max-w-md text-base leading-relaxed text-white/85 md:text-[17px]">
-                Equipos de ventas y soporte técnico en campo para acompañarte en cada etapa de tu proyecto.
+              <p className="max-w-md text-base leading-relaxed text-white/85 md:text-[17px]">
+                Toca tu zona en el mapa para ver el teléfono de tu asesor. Equipos de ventas y soporte técnico en
+                campo en cada etapa de tu proyecto.
               </p>
             </Reveal>
-            <ul className="divide-y divide-white/15 border-y border-white/15">
-              {zones.map((z, k) => (
-                <Reveal
-                  as="li"
-                  key={z.name}
-                  delay={k * 70}
-                  className="flex flex-col gap-1 py-5 sm:flex-row sm:items-center sm:justify-between sm:gap-6 sm:py-6"
-                >
-                  <span className="flex items-center gap-3 text-xl font-medium sm:text-2xl">
-                    <Pin className="size-5 shrink-0 text-sun" /> {z.name}
-                  </span>
-                  <span className="pl-8 text-[15px] text-white/75 sm:pl-0 sm:text-right">{z.detail}</span>
-                </Reveal>
-              ))}
-            </ul>
+            <Reveal delay={120} className="mt-12 md:mt-14">
+              <ZoneMap />
+            </Reveal>
           </div>
         </section>
 
@@ -369,43 +421,48 @@ export default function Home() {
       </main>
 
       {/* FOOTER */}
-      <footer className="bg-cream">
-        <div className="mx-auto grid max-w-7xl gap-12 px-6 py-16 md:grid-cols-[1.4fr_1fr_1fr_1fr]">
-          <div>
-            <Image src="/img/logo.png" alt="Agrologico" width={200} height={53} className="h-auto w-48" />
-            <p className="mt-5 max-w-xs text-[15px] text-brand-900/75">&ldquo;Por un mejor planeta Tierra&rdquo;</p>
-          </div>
+      <footer className="relative isolate overflow-hidden bg-brand-100">
+        {/* Cierre con la composición de la marca: hoja sol sólida y hoja de contorno. */}
+        <Leaf line className="pointer-events-none absolute -top-[10%] -left-[8%] -z-10 w-[min(1400px,160vw)] rotate-[4deg] text-brand-300/70" />
+        <Leaf className="pointer-events-none absolute -top-24 -right-28 -z-10 w-[300px] rotate-[6deg] text-sun sm:w-[420px] lg:-top-32 lg:right-[6%] lg:w-[520px]" />
+        <div className="mx-auto max-w-7xl px-6 pt-20 pb-4 md:pt-28">
+          <Logo className="logo-hover h-16 w-auto md:h-20" />
+          <p className="mt-8 max-w-[12ch] text-[2.5rem] leading-[1.05] font-semibold tracking-tight text-balance text-brand-700 md:text-6xl">
+            Por un mejor planeta Tierra.
+          </p>
+        </div>
+        <div className="mx-auto grid max-w-7xl gap-12 px-6 py-16 sm:grid-cols-3">
           <div>
             <h3 className="font-semibold text-brand-900">Agrologico</h3>
-            <ul className="mt-4 space-y-1 text-[15px] text-brand-900/75">
+            <ul className="mt-4 space-y-1 text-[15px] text-brand-900/85">
               {nav.map((n) => (
                 <li key={n.href}>
-                  <a href={n.href} className="inline-block py-1 transition-colors hover:text-brand-600">{n.label}</a>
+                  <a href={n.href} className="inline-block py-1 transition-colors hover:text-brand-700 hover:underline">{n.label}</a>
                 </li>
               ))}
             </ul>
           </div>
           <div>
             <h3 className="font-semibold text-brand-900">Productos</h3>
-            <ul className="mt-4 space-y-1 text-[15px] text-brand-900/75">
+            <ul className="mt-4 space-y-1 text-[15px] text-brand-900/85">
               {products.map((p) => (
                 <li key={p.img}>
-                  <a href="#productos" className="inline-block py-1 transition-colors hover:text-brand-600">{p.title.join(" ").replace("- ", "")}</a>
+                  <a href="#productos" className="inline-block py-1 transition-colors hover:text-brand-700 hover:underline">{p.title.join(" ").replace("- ", "")}</a>
                 </li>
               ))}
             </ul>
           </div>
           <div>
             <h3 className="font-semibold text-brand-900">Contacto</h3>
-            <ul className="mt-4 space-y-1 text-[15px] text-brand-900/75">
+            <ul className="mt-4 space-y-1 text-[15px] text-brand-900/85">
               <li>{site.address}</li>
-              <li><a href={`mailto:${site.email}`} className="inline-block py-1 transition-colors hover:text-brand-600">{site.email}</a></li>
-              <li><a href={`tel:${site.phone.replace(/\s/g, "")}`} className="inline-block py-1 transition-colors hover:text-brand-600">{site.phone}</a></li>
+              <li><a href={`mailto:${site.email}`} className="inline-block py-1 transition-colors hover:text-brand-700 hover:underline">{site.email}</a></li>
+              <li><a href={`tel:${site.phone.replace(/\s/g, "")}`} className="inline-block py-1 transition-colors hover:text-brand-700 hover:underline">{site.phone}</a></li>
             </ul>
           </div>
         </div>
-        <div className="border-t border-brand-700/10">
-          <p className="mx-auto max-w-7xl px-6 py-6 text-sm text-brand-900/70">
+        <div className="border-t border-brand-700/15">
+          <p className="mx-auto max-w-7xl px-6 py-6 text-sm text-brand-900/80">
             © {new Date().getFullYear()} Agrologico. Todos los derechos reservados.
           </p>
         </div>

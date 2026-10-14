@@ -25,7 +25,7 @@ Visual reference: [caudal.es](https://caudal.es/) — clean full-bleed agricultu
 
 ## Anti-references
 
-- **Agro cliché**: green-and-leaves decoration, rustic beige, farm illustrations, clip-art tractors.
+- **Agro cliché**: illustrated or clip-art leaves (the only leaf allowed is the geometric isotipo leaf from the 2025 brand manual), rustic beige, farm illustrations, clip-art tractors.
 - Generic SaaS/startup look (gradient text, metric cards, glassmorphism) — it disconnects from the field.
 - Ferretería-style dense catalog grids with sale banners.
 

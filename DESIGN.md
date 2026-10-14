@@ -7,9 +7,9 @@ colors:
   verde-noche: "#00352b"
   verde-noche-medio: "#004538"
   verde-bosque: "#005949"
-  brote: "#7cc576"
+  brote: "#6cbe45"
   rocio: "#dfeccb"
-  sol: "#f6a71c"
+  sol: "#fbad18"
   campo-claro: "#f7f8f3"
   blanco: "#ffffff"
   tinta: "#1c2b26"
@@ -127,15 +127,15 @@ components:
 
 La tecnología de precisión puesta al servicio del productor. La fotografía real de campo (fincas, pivotes, invernaderos, equipo en operación) carga la historia. La interfaz se mantiene limpia, técnica y callada alrededor de ella, como un buen sistema de riego: funciona sin llamar la atención. La referencia es caudal.es: fotografía agrícola a sangre, titulares sans-serif con aplomo, espacio en blanco generoso y producto sobre fondo suave.
 
-La densidad es baja y el ritmo pausado: secciones de 96–128px de alto vertical, una idea por pantalla y un llamado a conversar siempre a un paso (WhatsApp, teléfono, formulario). La paleta es de compromiso restringido: dos verdes de marca, un acento sol escaso, blanco y un claro de campo para alternar secciones. Las curvas aparecen en dos sitios: en los radios grandes de las tarjetas y en los arcos de línea fina que evocan el giro de un pivote central. Esas curvas son la firma geométrica del sistema.
+La densidad es baja y el ritmo pausado: secciones de 96–128px de alto vertical, una idea por pantalla y un llamado a conversar siempre a un paso (WhatsApp, teléfono, formulario). La paleta es de compromiso restringido: dos verdes de marca, un acento sol escaso, blanco y un claro de campo para alternar secciones. Las curvas aparecen en dos sitios: en los radios grandes de las tarjetas y en **la hoja del isotipo** (dos arcos de cuarto de círculo entre esquinas opuestas), usada a gran escala como contorno fino o como hoja sólida Sol, igual que en el manual de marca 2025. Esa hoja es la firma geométrica del sistema.
 
-El sistema rechaza explícitamente el **cliché agro** (hojitas decorativas, verde-y-hojas, beige rústico, ilustraciones de granja, tractores clip-art), el **look SaaS/startup genérico** (texto con gradiente, tarjetas de métricas, glassmorphism) y la **grilla densa de catálogo ferretero** con banners de oferta.
+El sistema rechaza explícitamente el **cliché agro** (hojas ilustradas o clip-art que no sean la hoja geométrica del isotipo, beige rústico, ilustraciones de granja, tractores clip-art), el **look SaaS/startup genérico** (texto con gradiente, tarjetas de métricas, glassmorphism) y la **grilla densa de catálogo ferretero** con banners de oferta.
 
 **Key Characteristics:**
 - Fotografía real de campo a sangre; la UI nunca compite con ella.
 - Una sola familia tipográfica (Montserrat) con contraste de peso y tamaño.
 - Formas suaves y firmes: radios generosos (16–40px), píldoras y colores sólidos y decididos.
-- Arcos de línea fina (1px) como única decoración gráfica.
+- La hoja del isotipo (contorno de 1px o sólida Sol) como única decoración gráfica.
 - Legible bajo el sol: contraste AA en todo texto, cuerpo de 16–17px y objetivos táctiles de 44px o más.
 - Movimiento sobrio: entradas suaves con ease-out-quart y nada que bloquee el contenido.
 
@@ -144,18 +144,18 @@ El sistema rechaza explícitamente el **cliché agro** (hojitas decorativas, ver
 Dos verdes de marca sobre blanco y claro de campo, con un único acento cálido que se usa con cuentagotas.
 
 ### Primary
-- **Verde Agrologico** (#009a46): el verde de la marca. Se usa en iconos, puntos de la línea de tiempo, arcos decorativos, bordes de foco y trazos. Mide 3.5:1 sobre claro, así que **no es apto para texto**.
+- **Verde Agrologico** (#009a46): el verde de la marca. Se usa en iconos, hojas de la línea de tiempo, hojas de contorno decorativas, bordes de foco y trazos. Mide 3.5:1 sobre claro, así que **no es apto para texto**.
 - **Verde Agrologico Texto** (#007a37): la versión de trabajo del verde de marca. Se usa en botones primarios (texto blanco, 5.5:1), subtítulos de sección, etiquetas Misión/Visión, enlaces en hover y el icono del formulario. Es el verde por defecto para cualquier cosa que deba leerse.
 
 ### Secondary
 - **Verde Noche** (#00352b): la tinta del sistema. Se usa en títulos, texto (a 75–85% de opacidad para cuerpo) y overlays de foto (gradientes de 90% a transparente).
 - **Verde Noche Medio** (#004538): fondo de la sección oscura (Zonas de venta) y texto del botón claro.
 - **Verde Bosque** (#005949): hover del botón primario y cifras de estadísticas.
-- **Brote** (#7cc576): subtítulos sobre fondos Verde Noche (5.3:1). Solo se usa sobre oscuro.
-- **Rocío** (#dfeccb): arcos de fondo detrás del producto en las tarjetas de producto (al 70%) y hover del botón claro.
+- **Brote** (#6cbe45): la hoja derecha del isotipo. Subtítulos sobre fondos Verde Noche (4.8:1; solo se usa como texto sobre oscuro) y hojas de contorno sobre Rocío.
+- **Rocío** (#dfeccb): fondo del cierre de marca en el pie de página, arcos de fondo detrás del producto en las tarjetas de producto (al 70%) y hover del botón claro.
 
 ### Tertiary
-- **Sol** (#f6a71c): el único acento cálido. Se usa en el badge "Nuevo", los pines de zona sobre verde oscuro y el punto del hito actual en la línea de tiempo. Mide 1.9:1 sobre claro: **nunca como color de texto sobre fondos claros**.
+- **Sol** (#fbad18): la hoja izquierda del isotipo y el único acento cálido. Se usa en el badge "Nuevo", los pines de zona, la hoja del hito actual, el par de hojas de los subtítulos y como hoja sólida grande en Cobertura y el pie de página. Mide 1.9:1 sobre claro: **nunca como color de texto sobre fondos claros**.
 
 ### Neutral
 - **Blanco** (#ffffff): fondo base de la página, superficie de tarjetas y campos.
@@ -165,7 +165,7 @@ Dos verdes de marca sobre blanco y claro de campo, con un único acento cálido 
 ### Named Rules
 **The Two-Greens Rule.** Verde Agrologico (#009a46) decora y Verde Agrologico Texto (#007a37) se lee. Si un verde lleva letras, es #007a37 o más oscuro. Sin excepciones.
 
-**The Scarce Sun Rule.** El Sol aparece en menos del 2% de cualquier pantalla: badges, pines y un único hito. Si hay más de tres toques de sol a la vista, sobra uno.
+**The Scarce Sun Rule.** El Sol es escaso salvo en dos momentos de marca: una hoja sólida grande en Cobertura y otra en el pie de página. Fuera de esos momentos, solo toques pequeños (badges, pines, el par de hojas). Nunca una hoja Sol sobre fotografía.
 
 **The Contrast Floor Rule.** El texto de cuerpo nunca baja de Verde Noche al 75% sobre claro (6:1). Gris claro "por elegancia" está prohibido: esta página se lee en el campo, bajo el sol.
 
@@ -247,13 +247,17 @@ Tarjetas blancas de 264×420px con radio de 40px: título en dos líneas, descri
 Las tarjetas de "Qué hacemos" son botones con un "+" y el texto "Ver detalle". Cada una abre un `<dialog>` nativo con: portada con el título sobre un overlay Verde Noche; resumen en 18px; etiquetas Rocío (por ejemplo "100 % biodegradable"); lista "Incluye" con checks en Verde Agrologico; logos de marcas aliadas en celdas blancas con radio de 16px; galería de equipos (los recortes de producto van sobre Campo Claro con `object-contain`, las fotografías con `object-cover`); los CTA "Cotizar esta solución" y WhatsApp; y navegación anterior/siguiente al pie. El botón de cotizar cierra la ficha, baja al formulario y deja preseleccionada esa línea. En el celular la ficha ocupa toda la pantalla. Entra con fundido y desplazamiento de 24px y el fondo se difumina. Cada ficha tiene su enlace compartible: `/#solucion-<slug>`.
 
 ### Banda de imagen (signature)
-Una foto a sangre con frase en itálica. Al entrar en pantalla pasa de un marco redondeado (inset de 5%, radio de 40px) a sangre completa. La foto se desplaza más lento que la página (parallax de ±9%) y un arco de pivote se dibuja a medida que avanza el scroll. Todo esto va ligado al scroll mediante `animation-timeline: view()`. La frase sube línea por línea desde una máscara.
+Una foto a sangre con frase en itálica. Al entrar en pantalla pasa de un marco redondeado (inset de 5%, radio de 40px) a sangre completa. La foto se desplaza más lento que la página (parallax de ±9%) y una hoja de contorno se dibuja a medida que avanza el scroll. Todo esto va ligado al scroll mediante `animation-timeline: view()`. La frase sube línea por línea desde una máscara.
 
 ### Coreografía de entrada
 Cada sección tiene su propia entrada, nunca el mismo fade repetido en todas. Hero: las tres palabras entran escalonadas desde la derecha (120ms entre cada una), luego el subtítulo y los botones; la foto hace parallax al salir de pantalla. Compromiso: la curva de la foto se abre como el agua al extenderse (clip-path de 0% a 100%), y después entran el título, Misión, Visión y los valores uno por uno (55ms entre cada uno). El estado final siempre es el estado por defecto: sin JS o con `prefers-reduced-motion`, todo se ve completo y quieto. Los contenedores con animación de scroll usan `overflow: clip`, nunca `hidden`, porque `hidden` crea un contenedor de scroll y rompe `view()`.
 
-### Arcos de pivote (signature)
-Círculos SVG de trazo de 1px (blanco al 40% sobre foto, Verde Agrologico al 30% sobre claro, blanco al 10% sobre Verde Noche) que salen del encuadre. Son la única decoración gráfica permitida.
+### La hoja del isotipo (signature)
+Componente `Leaf` (`src/components/Leaf.tsx`): la forma exacta de las hojas del logo, `M0 0A100 100 0 0 1 100 100A100 100 0 0 1 0 0Z`. Dos usos:
+- **Contorno de 1px** a gran escala que sale del encuadre: blanco al 35% sobre foto, Verde Agrologico al 35% sobre claro, Brote al 40% sobre Verde Noche y Brote al 70% sobre Rocío. Nunca debe cruzar párrafos; puede pasar detrás de tarjetas.
+- **Sólida Sol**, grande y cortada por el borde, solo en Cobertura y el pie de página (la composición del manual de marca).
+- **`LeafPair`**: el par de hojas del isotipo (Sol + Brote) delante de cada subtítulo de sección; y hojas pequeñas como marcadores de la línea de tiempo.
+Cada sección compone la hoja distinto (orientación, escala, posición); nunca el mismo adorno repetido.
 
 ## 6. Do's and Don'ts
 
@@ -269,10 +273,10 @@ Círculos SVG de trazo de 1px (blanco al 40% sobre foto, Verde Agrologico al 30%
 - **Do** diseñar el movimiento por sección según lo que revela (curva que se abre, texto que sube por líneas, foto con parallax), con ease-out-quart.
 
 ### Don't:
-- **Don't** caer en el **cliché agro**: nada de verde-y-hojitas decorativas, beige rústico, ilustraciones de granja ni tractores clip-art.
+- **Don't** caer en el **cliché agro**: nada de hojas ilustradas fuera de la hoja geométrica del isotipo, beige rústico, ilustraciones de granja ni tractores clip-art.
 - **Don't** usar el **look SaaS/startup genérico**: texto con gradiente, tarjetas de métricas con gradiente o glassmorphism.
 - **Don't** convertir los productos en una **grilla densa de catálogo ferretero** con banners de oferta.
-- **Don't** usar Sol (#f6a71c) ni Verde Agrologico (#009a46) como color de texto sobre fondos claros.
+- **Don't** usar Sol (#fbad18) ni Verde Agrologico (#009a46) como color de texto sobre fondos claros.
 - **Don't** poner etiquetas en mayúsculas espaciadas (eyebrows) ni numeración 01/02/03 sobre los títulos de sección.
 - **Don't** usar bordes laterales de color (border-left o border-right de más de 1px) como acento.
 - **Don't** agregar una segunda familia tipográfica. Montserrat en cuatro pesos es la voz.

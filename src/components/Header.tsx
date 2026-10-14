@@ -1,8 +1,8 @@
 "use client";
 
-import Image from "next/image";
 import { useEffect, useState } from "react";
 import { nav, site, waLink } from "@/lib/content";
+import Logo from "./Logo";
 import { Phone, WhatsApp } from "./icons";
 
 export default function Header() {
@@ -53,42 +53,28 @@ export default function Header() {
 
       {/* Navegación principal */}
       <div className="mx-auto flex h-18 max-w-7xl items-center justify-between px-6">
-        <a href="#inicio" aria-label="Agrologico, inicio" className="relative h-9 w-36">
-          <Image
-            src="/img/logo-white.png"
-            alt="Agrologico"
-            fill
-            preload
-            sizes="144px"
-            className={`object-contain object-left transition-opacity ${solid ? "opacity-0" : "opacity-100"}`}
-          />
-          <Image
-            src="/img/logo.png"
-            alt=""
-            fill
-            sizes="144px"
-            className={`object-contain object-left transition-opacity ${solid ? "opacity-100" : "opacity-0"}`}
-          />
+        {/* Arriba del todo el logo se ve grande; al bajar se encoge y se acomoda en la barra. */}
+        <a
+          href="#inicio"
+          aria-label="Agrologico, inicio"
+          data-big={!solid || undefined}
+          className="brand-logo group relative z-10 block shrink-0"
+        >
+          <Logo light={!solid} className="h-10 w-auto sm:h-11" />
         </a>
 
-        <nav aria-label="Principal" className="hidden items-center gap-8 lg:flex">
+        <nav aria-label="Principal" className="hidden items-center gap-5 lg:flex xl:gap-8">
           {nav.map((item) => (
             <a
               key={item.href}
               href={item.href}
-              className={`text-[15px] font-medium transition-colors ${
+              className={`text-[14px] font-medium whitespace-nowrap transition-colors xl:text-[15px] ${
                 solid ? "text-brand-900 hover:text-brand-600" : "text-white hover:text-brand-100"
               }`}
             >
               {item.label}
             </a>
           ))}
-          <a
-            href="#contacto"
-            className="inline-flex min-h-11 items-center rounded-full bg-brand-600 px-6 text-[15px] font-semibold text-white transition-colors hover:bg-brand-700"
-          >
-            Cotizar
-          </a>
         </nav>
 
         <button
@@ -128,6 +114,16 @@ export default function Header() {
           </a>
         </nav>
       )}
+
+      {/* Botón flotante para cotizar, visible tras dejar el hero */}
+      <a
+        href="#contacto"
+        className={`fixed right-22 bottom-4 inline-flex min-h-14 items-center rounded-full bg-brand-600 px-7 text-base font-semibold text-white shadow-[0_10px_30px_-8px_rgba(0,53,43,0.6)] transition-[opacity,translate,background-color] duration-300 ease-out-quart hover:bg-brand-700 md:right-6 md:bottom-6 ${
+          scrolled && !open ? "translate-y-0 opacity-100" : "pointer-events-none translate-y-4 opacity-0"
+        }`}
+      >
+        Cotizar
+      </a>
 
       {/* Acceso directo a WhatsApp en móvil, visible tras dejar el hero */}
       <a
