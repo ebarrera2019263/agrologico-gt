@@ -13,8 +13,8 @@ export default function Logo({ light = false, className }: { light?: boolean; cl
         <path className="logo-leaf logo-leaf-l fill-sun" d="M0 487A177 177 0 0 1 177 664A177 177 0 0 1 0 487Z" />
         <path className="logo-leaf logo-leaf-r fill-brand-300" d="M384 487A177 177 0 0 0 207 664A177 177 0 0 0 384 487Z" />
       </g>
-      <image href="/img/wordmark.png" x="534" y="29" width="2072" height="660" className={`transition-opacity duration-300 ${light ? "opacity-0" : "opacity-100"}`} />
-      <image href="/img/wordmark-white.png" x="534" y="29" width="2072" height="660" className={`transition-opacity duration-300 ${light ? "opacity-100" : "opacity-0"}`} />
+      <image href={`${process.env.NEXT_PUBLIC_BASE_PATH ?? ""}/img/wordmark.png`} x="534" y="29" width="2072" height="660" className={`transition-opacity duration-300 ${light ? "opacity-0" : "opacity-100"}`} />
+      <image href={`${process.env.NEXT_PUBLIC_BASE_PATH ?? ""}/img/wordmark-white.png`} x="534" y="29" width="2072" height="660" className={`transition-opacity duration-300 ${light ? "opacity-100" : "opacity-0"}`} />
     </svg>
   );
 }
