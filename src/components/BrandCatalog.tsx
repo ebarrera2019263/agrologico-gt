@@ -52,7 +52,10 @@ export default function BrandCatalog() {
         role="tablist"
         aria-label="Marcas"
         onKeyDown={onKey}
-        className="no-scrollbar -mx-6 flex gap-3 overflow-x-auto px-6 pt-1 pb-3 lg:mx-0 lg:grid lg:grid-cols-7 lg:overflow-visible lg:px-0"
+        className={`no-scrollbar -mx-6 flex gap-3 overflow-x-auto px-6 pt-1 pb-3 lg:mx-0 lg:grid lg:overflow-visible lg:px-0 ${
+          // Columnas elegidas para que las filas queden completas: 15 marcas de riego, 11 de otras líneas.
+          group === "riego" ? "lg:grid-cols-5" : "lg:grid-cols-6"
+        }`}
       >
         {list.map((b, k) => {
           const selected = k === active;

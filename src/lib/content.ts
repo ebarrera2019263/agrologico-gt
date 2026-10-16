@@ -27,6 +27,11 @@ export const nav = [
 
 export const products = [
   {
+    title: ["Cinta de goteo", "Mago"],
+    img: "/img/products/mago.png",
+    desc: "Cinta de goteo de alto rendimiento de SAB, hecha en Italia: riego uniforme y resistente a obstrucciones.",
+  },
+  {
     title: ["Riego", "por goteo"],
     img: "/img/products/goteo.jpg",
     desc: "Mangueras y cintas con gotero integrado, goteros autocompensados y accesorios.",
@@ -801,11 +806,43 @@ export const brandCatalog: BrandCatalog[] = [
     line: "Cintas y conexiones",
     summary: "Cintas de goteo, mangueras layflat y conectores de riego fabricados en Italia.",
     products: [
-      { name: "Ma.Go.", desc: "Cinta de goteo de alto rendimiento, hecha en Italia." },
+      { name: "Mago", desc: "Cinta de goteo de alto rendimiento, hecha en Italia." },
       { name: "SABtape", desc: "Cinta de goteo con excelente relación calidad-precio." },
       { name: "SKY", desc: "Cinta de goteo de alta calidad, hecha en Italia." },
       { name: "RioFlex", desc: "Manguera layflat de polietileno para conducir agua, 100 % reciclable." },
       { name: "Conectores rápidos", desc: "Conectores y accesorios para cinta y tubería de goteo." },
+    ],
+  },
+  {
+    id: "multitubo",
+    name: "Multitubo",
+    group: "riego",
+    logo: blogo("multitubo"),
+    url: "https://multitubo.com.gt/",
+    line: "Tubería y accesorios de PVC",
+    summary: "Fabricante guatemalteco de tubería y accesorios de PVC para agua potable y riego, con más de 20 años.",
+    products: [
+      { name: "Tubería agua potable y riego", desc: "Tubería PVC a presión para agua potable y riego, de 1/2\" a 12\"." },
+      { name: "ASTM D-2241 junta cementada", desc: "Tubo PVC de presión con unión cementada, de 1/2\" a 12\"." },
+      { name: "ASTM D-2241 junta rápida", desc: "Tubo PVC con junta de empaque, de 2\" a 12\", para líneas de conducción." },
+      { name: "Accesorios agua potable y riego", desc: "Codos, tees, uniones, adaptadores y abrazaderas PVC cédula 40." },
+      { name: "Multijardín", desc: "Manguera de jardín de 7/16\" en rollos de 25 a 150 pies." },
+    ],
+  },
+  {
+    id: "gerfor",
+    name: "Gerfor",
+    group: "riego",
+    logo: blogo("gerfor"),
+    url: "https://www.gerfor.com/",
+    line: "Tubosistemas de PVC para riego",
+    summary: "Tubosistemas de PVC para riego e infraestructura, de Colombia, con planta y ventas en Guatemala.",
+    products: [
+      { name: "Tubería Riego extremo liso", desc: "Tubería PVC para riego agrícola de extremo liso, norma NTC 3317." },
+      { name: "Tubería Riego unión mecánica", desc: "Tubería PVC con unión mecánica para riego predial y distritos de riego." },
+      { name: "Tubería Riego PVC orientado", desc: "Tubería de PVC orientado para conducción de agua de riego." },
+      { name: "Tubería Riego de compuertas", desc: "Para riego por superficie, según la norma USDA S-430-HH." },
+      { name: "Accesorios Riego", desc: "Línea de accesorios de PVC para la tubería de riego Gerfor." },
     ],
   },
   {
