@@ -21,7 +21,7 @@ export default function Header() {
   return (
     <header
       className={`fixed inset-x-0 top-0 z-50 transition-colors duration-300 ${
-        solid ? "bg-white shadow-[0_6px_24px_-12px_rgba(0,53,43,0.25)]" : "bg-transparent"
+        solid ? "bg-white" : "bg-transparent"
       }`}
     >
       {/* Barra superior */}
@@ -30,8 +30,7 @@ export default function Header() {
           solid ? "border-brand-700/10 text-brand-800" : "border-white/20 text-white"
         }`}
       >
-        <div className="mx-auto flex h-10 max-w-7xl items-center justify-between px-6">
-          <span>{site.slogan}</span>
+        <div className="mx-auto flex h-10 max-w-7xl items-center justify-end px-6">
           <div className="flex items-center gap-6">
             <a href={`tel:${site.phone.replace(/\s/g, "")}`} className="flex items-center gap-2 hover:opacity-70">
               <Phone /> {site.phone}
@@ -114,6 +113,18 @@ export default function Header() {
           </a>
         </nav>
       )}
+
+      {/* Línea tricolor de la marca (verde · sol · verde) que cierra la barra al bajar. */}
+      <div
+        aria-hidden="true"
+        className={`absolute inset-x-0 bottom-0 grid h-[5px] grid-cols-3 transition-opacity duration-300 ${
+          solid ? "opacity-100" : "opacity-0"
+        }`}
+      >
+        <span className="bg-brand-300" />
+        <span className="bg-sun" />
+        <span className="bg-brand-300" />
+      </div>
 
       {/* Botón flotante para cotizar, visible tras dejar el hero */}
       <a

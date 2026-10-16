@@ -4,13 +4,13 @@ import Reveal from "@/components/Reveal";
 import AboutCarousel from "@/components/AboutCarousel";
 import ContactForm from "@/components/ContactForm";
 import ProductRail from "@/components/ProductRail";
+import BrandCatalog from "@/components/BrandCatalog";
 import Solutions from "@/components/Solutions";
-import CropSolutions from "@/components/CropSolutions";
 import ZoneMap from "@/components/ZoneMap";
 import { Arrow, Mail, Phone, Pin, WhatsApp } from "@/components/icons";
 import { Isotipo, Leaf } from "@/components/Leaf";
 import Logo from "@/components/Logo";
-import { brands, history, nav, products, projectPhotos, projectSteps, site, values, waLink } from "@/lib/content";
+import { brands, history, ownBrands, nav, products, projectPhotos, projectSteps, site, values, waLink } from "@/lib/content";
 
 function Button({ href, children, light = false }: { href: string; children: React.ReactNode; light?: boolean }) {
   return (
@@ -75,8 +75,8 @@ export default function Home() {
 
           <div className="mx-auto w-full max-w-7xl px-6 pt-28">
             <div className="max-w-2xl">
-              <h1 className="text-6xl font-semibold leading-[0.95] tracking-tight text-white sm:text-7xl lg:text-8xl">
-                {["Agua.", "Campo.", "Futuro."].map((w, k) => (
+              <h1 className="text-5xl font-semibold leading-[1] tracking-tight text-balance text-white sm:text-6xl lg:text-7xl">
+                {["Soluciones", "y tecnología", "al alcance de todos."].map((w, k) => (
                   <span key={w} className="block">
                     <span className="hero-word" style={{ "--i": k } as React.CSSProperties}>
                       {w}
@@ -84,11 +84,7 @@ export default function Home() {
                   </span>
                 ))}
               </h1>
-              <p className="hero-after mt-6 max-w-md text-2xl font-normal leading-snug text-white/90 md:text-[1.7rem]">
-                Soluciones integrales <br className="hidden sm:block" />
-                para tus cultivos.
-              </p>
-              <div className="hero-after mt-8 flex flex-wrap gap-3" style={{ "--i": 1 } as React.CSSProperties}>
+              <div className="hero-after mt-10 flex flex-wrap gap-3" style={{ "--i": 1 } as React.CSSProperties}>
                 <Button href="#productos">Ver productos</Button>
                 <Button href="#contacto" light>
                   Cotizar proyecto
@@ -128,6 +124,21 @@ export default function Home() {
               <ProductRail />
             </Reveal>
           </div>
+
+          {/* Productos por marca representada */}
+          <div className="relative mx-auto mt-20 max-w-7xl px-6 md:mt-24">
+            <Reveal className="flex flex-wrap items-end justify-between gap-6">
+              <h3 className="text-[1.75rem] leading-tight font-medium tracking-tight text-brand-900 md:text-[2.25rem]">
+                Productos por marca
+              </h3>
+              <p className={`max-w-md ${body}`}>
+                Elige una marca y conoce algunos de los equipos e insumos que te podemos ofrecer.
+              </p>
+            </Reveal>
+            <Reveal delay={120} className="mt-10">
+              <BrandCatalog />
+            </Reveal>
+          </div>
         </section>
 
         {/* BANDA IMAGEN */}
@@ -144,33 +155,13 @@ export default function Home() {
           <Reveal group className="mx-auto flex h-full max-w-7xl items-end justify-end px-6 pb-12 md:pb-16">
             <p className="text-right text-[1.75rem] leading-tight font-medium text-balance text-white md:text-[2.75rem]">
               <span className="line-mask">
-                <span style={{ "--i": 0 } as React.CSSProperties}>Soluciones y tecnología</span>
+                <span style={{ "--i": 0 } as React.CSSProperties}>“Por un mejor</span>
               </span>
-              <span className="line-mask">
-                <span style={{ "--i": 1 } as React.CSSProperties}>al alcance de todos</span>
-              </span>
-              <span className="line-mask text-xl text-sun italic md:text-[1.75rem]">
-                <span className="pt-3 md:pt-4" style={{ "--i": 2 } as React.CSSProperties}>“Por un mejor planeta Tierra”</span>
+              <span className="line-mask text-sun italic">
+                <span style={{ "--i": 1 } as React.CSSProperties}>planeta Tierra”</span>
               </span>
             </p>
           </Reveal>
-        </section>
-
-        {/* SOLUCIONES POR CULTIVO */}
-        <section id="soluciones" className="relative overflow-hidden py-24 md:py-32">
-          <Leaf line className="pointer-events-none absolute top-[30%] -right-[22%] hidden w-[min(1000px,140vw)] rotate-[95deg] text-brand-500/30 lg:block" />
-          <div className="relative mx-auto max-w-7xl px-6">
-            <Reveal className="flex flex-wrap items-end justify-between gap-6">
-              <SectionTitle title="Soluciones por cultivo" kicker="Lo que tu cultivo necesita" />
-              <p className={`max-w-md ${body}`}>
-                Elige tu cultivo y te mostramos cómo lo atendemos: agua, nutrición, protección y cosecha, con un
-                solo equipo de asesores.
-              </p>
-            </Reveal>
-            <Reveal delay={120}>
-              <CropSolutions />
-            </Reveal>
-          </div>
         </section>
 
         {/* PROYECTOS */}
@@ -225,7 +216,32 @@ export default function Home() {
 
         {/* MARCAS */}
         <section id="marcas" className="overflow-hidden py-24 md:py-28">
+          {/* Marcas propias de riego: van primero y con más peso que las representadas. */}
           <div className="mx-auto max-w-7xl px-6">
+            <Reveal>
+              <SectionTitle title="Nuestras marcas de riego" kicker="Desarrollo propio Agrologico" />
+            </Reveal>
+            <div className="mt-12 grid gap-6 md:grid-cols-2">
+              {ownBrands.map((b, k) => (
+                <Reveal key={b.id} delay={k * 120}>
+                  <article className="relative flex h-full flex-col overflow-hidden rounded-[2rem] bg-white p-8 shadow-[0_20px_40px_-24px_rgba(0,53,43,0.35)] ring-1 ring-brand-700/10 md:p-10">
+                    <div aria-hidden="true" className={`absolute inset-x-0 top-0 h-1.5 bg-gradient-to-r ${b.accent}`} />
+                    <div className="relative h-12 w-full max-w-[300px] md:h-14">
+                      <Image src={`/img/own/${b.id}.png`} alt={b.name} fill sizes="300px" className="object-contain object-left" />
+                    </div>
+                    <p className={`mt-6 max-w-md ${body}`}>{b.desc}</p>
+                    <div className="mt-auto pt-8">
+                      <Button href="#contacto">
+                        Cotizar {b.name}
+                      </Button>
+                    </div>
+                  </article>
+                </Reveal>
+              ))}
+            </div>
+          </div>
+
+          <div className="mx-auto mt-24 max-w-7xl px-6 md:mt-28">
             <Reveal>
               <SectionTitle title="Marcas que representamos" />
               <p className={`mt-4 max-w-xl ${body}`}>
@@ -262,8 +278,7 @@ export default function Home() {
                 </p>
                 <p>
                   Nuestro propósito: incrementar la <strong className="text-brand-900">productividad, rentabilidad y desarrollo sostenible</strong>{" "}
-                  de nuestros socios comerciales.{" "}
-                  <strong className="text-brand-900">Por un mejor planeta Tierra.</strong>
+                  de nuestros socios comerciales.
                 </p>
               </div>
               <dl className="mt-10 grid grid-cols-3 gap-6 border-t border-brand-700/10 pt-8">
@@ -427,9 +442,6 @@ export default function Home() {
         <Leaf className="pointer-events-none absolute -top-24 -right-28 -z-10 w-[300px] rotate-[6deg] text-sun sm:w-[420px] lg:-top-32 lg:right-[6%] lg:w-[520px]" />
         <div className="mx-auto max-w-7xl px-6 pt-20 pb-4 md:pt-28">
           <Logo className="logo-hover h-16 w-auto md:h-20" />
-          <p className="mt-8 max-w-[12ch] text-[2.5rem] leading-[1.05] font-semibold tracking-tight text-balance text-brand-700 md:text-6xl">
-            Por un mejor planeta Tierra.
-          </p>
         </div>
         <div className="mx-auto grid max-w-7xl gap-12 px-6 py-16 sm:grid-cols-3">
           <div>
@@ -461,8 +473,18 @@ export default function Home() {
             </ul>
           </div>
         </div>
-        <div className="border-t border-brand-700/15">
-          <p className="mx-auto max-w-7xl px-6 py-6 text-sm text-brand-900/80">
+        {/* Franja de lemas con la línea tricolor de la marca: verde · sol · verde. */}
+        <div className="mx-auto max-w-7xl px-6">
+          <div className="flex flex-col gap-2 pb-3 text-sm font-bold tracking-wide text-brand-700/70 uppercase sm:flex-row sm:items-end sm:justify-between md:text-base">
+            <p>Soluciones y tecnología al alcance de todos</p>
+            <p>“Por un mejor planeta Tierra”</p>
+          </div>
+          <div aria-hidden="true" className="grid h-[3px] grid-cols-3">
+            <span className="bg-brand-300" />
+            <span className="bg-sun" />
+            <span className="bg-brand-300" />
+          </div>
+          <p className="py-6 text-sm text-brand-900/80">
             © {new Date().getFullYear()} Agrologico. Todos los derechos reservados.
           </p>
         </div>
